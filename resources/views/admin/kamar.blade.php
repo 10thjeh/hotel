@@ -7,7 +7,9 @@
   <div class="row">
     <div class="col">
       @foreach($rooms as $room)
-      <form class="" action="index.html" method="post">
+      <form action="{{url('/admin/room/update')}}" method="post">
+        @csrf
+        <input type="text" name="id" value="{{$room->id}}" hidden>
         <div class="mb-3">
           <label for="namaKamar" class="form-label">Nama kamar</label>
           <input type="text" class="form-control" name="namaKamar" id="namaKamar" value="{{$room->namaKamar}}">

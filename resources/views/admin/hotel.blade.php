@@ -1,13 +1,13 @@
 @extends('admin.template')
 
 @section('content')
-<hr>
 <div class="container">
   @foreach($hotels as $hotel)
   <div class="row">
     <div class="col">
       @section('title',$hotel->nama)
-      <form class="" action="index.html" method="post">
+      <form action="{{url('/admin/hotels/update/d')}}" method="post">
+        @csrf
         <input type="text" name="id" value="{{$hotel->id}}" hidden> <!--please dont change me :(-->
         <div class="mb-3">
           <h2>Description</h2>
@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3">
           <label for="rating" class="form-label">Rating</label>
-          <input type="number" min="0" class="form-control" name="rating" id="rating" value="{{$hotel->rating}}">
+          <input type="number" min="0" max="5" class="form-control" name="rating" id="rating" value="{{$hotel->rating}}">
         </div>
         <button type="submit" class="btn btn-primary" name="button">Update</button>
       </form>
@@ -58,18 +58,41 @@
   </div>
   <hr>
   <div class="row">
-    <h2>Fasilitas</h2>
-    <form class="" action="index.html" method="post">
-      @foreach($listOfFacilities as $facility)
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="{{$facility->id}}" id="{{$facility->id}}">
-        <label class="form-check-label" for="{{$facility->id}}">
-          {{$facility->nama}}
-        </label>
-      </div>
-      @endforeach
-      <button type="submit" class="btn btn-primary" name="button">Update facility</button>
-    </form>
+    <div class="col">
+      <h2>Fasilitas</h2>
+      <form action="{{url('/admin/hotels/update/f')}}" method="post">
+        @csrf
+        @foreach($hotels as $hotel)
+          <input type="text" name="id" value="{{$hotel->id}}" hidden>
+        @endforeach
+        @foreach($listOfFacilities as $facility)
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="{{$facility->nama}}" value="{{$facility->id}}" id="{{$facility->id}}" <?php if(in_array($facility->id, $hotelFacilities)) echo "checked" ?>>
+            <label class="form-check-label" for="{{$facility->id}}">
+              {{$facility->nama}}
+            </label>
+          </div>
+        @endforeach
+        <button type="submit" class="btn btn-primary">Update facility</button>
+      </form>
+    </div>
+    <div class="col">
+      <h2>Lokasi</h2>
+      <form action="{{url('/admin/hotels/update/p')}}" method="post">
+        @csrf
+        <div class="mb-3">
+          @foreach($hotels as $hotel)
+            <input type="text" name="id" value="{{$hotel->id}}" hidden>
+          @endforeach
+          <select class="form-select" name="lokasi" aria-label="Default select example">
+            @foreach($locations as $location)
+              <option value="{{$location->idLokasi}}" <?php if($location->idLokasi == $hotelLocation) echo "selected"; ?>>{{$location->namaLokasi}}</option>
+            @endforeach
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update lokasi</button>
+      </form>
+    </div>
   </div>
   <hr>
   <div class="row">

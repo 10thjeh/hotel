@@ -14,8 +14,18 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-/*Admin routes*/
+/*=========
+Admin routes
+===========*/
+
+//Get routes
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/hotels', [AdminController::class, 'showhotels']);
 Route::get('/admin/hotels/{id}', [AdminController::class, 'hotel']);
 Route::get('/admin/room/{id}', [AdminController::class, 'kamar']);
+
+//Post routes
+Route::post('/admin/hotels/update/d', [AdminController::class, 'updatehoteld']);
+Route::post('/admin/hotels/update/f', [AdminController::class, 'updatehotelf']);
+Route::post('/admin/hotels/update/p', [AdminController::class, 'updatelocation']);
+Route::post('/admin/room/update', [AdminController::class, 'updateroom']);
