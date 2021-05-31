@@ -9,6 +9,111 @@ use Session;
 
 class AdminModel extends Model
 {
+
+  function getLatestHotelId(){
+    $query = DB::table('hotel')
+                 ->orderBy('id', 'desc')
+                 ->limit(1)
+                 ->get();
+
+    foreach ($query as $q) {
+      $id = $q->id;
+    }
+
+    return $id;
+  }
+
+  /*===================
+  Create function
+  ====================*/
+    /*Create new hotel*/
+    static function newHotel($nama, $rating, $lokasi, $deskripsi){
+      DB::beginTransaction();
+      $query = DB::table('hotel')
+               ->insert([
+                 'id' => (int)'',
+                 'nama' => $nama,
+                 'rating' => $rating,
+                 'deskripsi' => $deskripsi
+               ]);
+
+      //Get Hotel ID
+
+      $queryId = DB::table('hotel')
+                   ->orderBy('id', 'desc')
+                   ->limit(1)
+                   ->get();
+
+      foreach ($queryId as $q) {
+        $id = $q->id;
+      }
+
+      $querylokasi = DB::table('lokasi')
+                         ->insert([
+                           'idHotel' => $id,
+                           'idLokasi' => $lokasi
+                         ]);
+      DB::commit();
+
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error']);
+      }
+
+      return redirect()->back()->with('status', 'Update successful!');
+    }
+
+    /*Create new location*/
+    static function newLocation($lokasi){
+      DB::beginTransaction();
+      $query = DB::table('lokasidetail')
+                   ->insert([
+                     'idLokasi' => (int)'',
+                     'namaLokasi' => $lokasi
+                   ]);
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error']);
+      }
+
+      return redirect()->back()->with('status', 'Update successful!');
+    }
+
+    /*Create new hotel facility*/
+    static function newHotelFacility($fasilitas){
+      DB::beginTransaction();
+      $query = DB::table('fasilitashoteldetail')
+                   ->insert([
+                     'id' => (int)'',
+                     'nama' => $fasilitas
+                   ]);
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error']);
+      }
+
+      return redirect()->back()->with('status', 'Update successful!');
+    }
+
+    /*Create new hotel facility*/
+    static function newRoomFacility($fasilitas){
+      DB::beginTransaction();
+      $query = DB::table('fasilitaskamardetail')
+                   ->insert([
+                     'id' => (int)'',
+                     'nama' => $fasilitas
+                   ]);
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error']);
+      }
+
+      return redirect()->back()->with('status', 'Update successful!');
+    }
+
   /*===================
   Read functions
   ====================*/

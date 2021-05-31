@@ -36,6 +36,9 @@
   @endforeach
   <hr>
   <div class="row">
+    <a role="button" href="#" class="btn btn-primary">+Kamar</a>
+  </div>
+  <div class="row">
     <h2>Kamar</h2>
     <table id="example" class="table table-striped display" style="width:100%">
       <thead>

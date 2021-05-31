@@ -24,9 +24,9 @@
                   Add new...
               </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="{{url('/admin/orders/all')}}">Hotel</a></li>
-                  <li><a class="dropdown-item" href="{{url('/admin/orders/all')}}">Facility</a></li>
-                  <li><a class="dropdown-item" href="{{url('/admin/orders/all')}}">City</a></li>
+                  <li><a class="dropdown-item" href="{{url('/admin/new/hotel')}}">Hotel</a></li>
+                  <li><a class="dropdown-item" href="{{url('/admin/new/facility')}}">Facility</a></li>
+                  <li><a class="dropdown-item" href="{{url('/admin/new/location')}}">City</a></li>
                 </ul>
             </li>
           </ul>
