@@ -41,6 +41,65 @@ class AdminController extends Controller
       return view('admin/kamar', ['rooms' => $rooms]);
     }
 
+    /*Gives the new hotel form*/
+    function newhotel(){
+      $locations = AdminModel::location();
+      return view('admin/new/hotel', ['locations' => $locations]);
+    }
+
+    /*Submit the new hotel form*/
+    function submitnewhotel(Request $request){
+      $request->validate([
+        'nama' => 'required',
+        'rating' => 'required|numeric|min:0|max:5|multiple_of:1',
+        'lokasi' => 'required|numeric|multiple_of:1',
+        'deskripsi' => 'required'
+      ]);
+
+      $nama = $request->nama;
+      $rating = $request->rating;
+      $lokasi = $request->lokasi;
+      $deskripsi = $request->deskripsi;
+      return AdminModel::newHotel($nama, $rating, $lokasi, $deskripsi);
+    }
+
+    /*Gives the new location form*/
+    function newlocation(){
+      return view('/admin/new/location');
+    }
+
+    /*Submit the new location*/
+    function submitnewlocation(Request $request){
+      $request->validate([
+        'lokasi' => 'required'
+      ]);
+      $lokasi = $request->lokasi;
+      return AdminModel::newLocation($lokasi);
+    }
+
+    /*Gives the new facility form*/
+    function newfacility(){
+      return view('admin/new/facility');
+    }
+
+    /*submit new hotel facility*/
+    function submithotelfacility(Request $request){
+      $request->validate([
+        'fasilitas' => 'required'
+      ]);
+      $fasilitas = $request->fasilitas;
+      return AdminModel::newHotelFacility($fasilitas);
+    }
+
+    /*submit new room facility*/
+    function submitroomfacility(Request $request){
+      $request->validate([
+        'fasilitas' => 'required'
+      ]);
+      $fasilitas = $request->fasilitas;
+      return AdminModel::newRoomFacility($fasilitas);
+    }
+
     /*=========================================
     | Update functions
     | updatehoteld(Request $request) -> Update Deskripsi hotel dan rating hotel
