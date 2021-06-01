@@ -29,7 +29,7 @@
           <input type="number" min="0" class="form-control" name="qty" id="qty" value="{{$room->qty}}">
         </div>
         <button type="submit" class="btn btn-primary" name="button">Update</button>
-        <a role="button" href="#" class="btn btn-danger">Delete</a>
+        <a role="button" href="{{url('/admin/delete/room/'.$room->id)}}" class="btn btn-danger">Delete</a>
       </form>
       @endforeach
     </div>
@@ -50,7 +50,9 @@
       <h2>Fasilitas</h2>
       <form action="{{url('/admin/room/update/f')}}" method="post">
         @csrf
-        <input type="text" name="id" value="{{$room->id}}" hidden>
+        @foreach($rooms as $room)
+          <input type="text" name="id" value="{{$room->id}}" hidden>
+        @endforeach
         @foreach($listOfFacilities as $facility)
           <div class="form-check">
             <input class="form-check-input" type="checkbox" name="{{$facility->nama}}" value="{{$facility->id}}" id="{{$facility->id}}" <?php if(in_array($facility->id, $roomFacilities)) echo "checked" ?>>

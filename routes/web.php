@@ -20,13 +20,15 @@ Admin routes
 
 //Get routes
 Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/admin/hotels', [AdminController::class, 'showhotels']);
+Route::get('/admin/hotels', [AdminController::class, 'showhotels'])->name('hotels');
 Route::get('/admin/hotels/{id}', [AdminController::class, 'hotel']);
 Route::get('/admin/room/{id}', [AdminController::class, 'kamar']);
 Route::get('/admin/new/hotel', [AdminController::class, 'newhotel']);
 Route::get('/admin/new/location', [AdminController::class, 'newlocation']);
 Route::get('/admin/new/facility', [AdminController::class, 'newfacility']);
 Route::get('/admin/new/room/{id}', [AdminController::class, 'newroom']);
+Route::get('/admin/delete/room/{id}', [AdminController::class, 'removeroom']);
+Route::get('/admin/delete/hotel/{id}', [AdminController::class, 'removehotel']);
 
 //Post routes
 Route::post('/admin/hotels/update/d', [AdminController::class, 'updatehoteld']);

@@ -339,4 +339,91 @@ class AdminModel extends Model
       return redirect()->back()->with('status', 'Update successful!');
     }
 
+    /*==============
+    Delete functions
+    ===============*/
+
+    /*==============
+    General direction for deleting things:
+    Kamar
+    ->Hapus transaksi
+    ->Hapus fasilitas
+    ->Hapus foto
+    ->Hapus kamar
+    ===============*/
+
+    /*Function for deleting room*/
+    static function removeRoom($id){
+      DB::beginTransaction();
+      $deleteTransaction = DB::table('transaction')
+                               ->where('idKamar', $id)
+                               ->delete();
+      $deleteFacilities = DB::table('fasilitaskamar')
+                              ->where('idKamar', $id)
+                              ->delete();
+      $deletePhotos = DB::table('fotoKamar')
+                          ->where('idKamar', $id)
+                          ->delete();
+      $delete = DB::table('kamar')
+                    ->where('id', $id)
+                    ->delete();
+      DB::commit();
+      if(!$delete){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : Unknown error!']);
+      }
+
+      return redirect()->back()->with('status', 'Deleted successfully!');
+    }
+
+    static function removeHotel($id){
+      DB::beginTransaction();
+      $deleteTransaction = DB::table('transaction')
+                               ->where('idHotel', $id)
+                               ->delete();
+
+      $deletePhotos = DB::table('fotohotel')
+                        ->where('idHotel', $id)
+                        ->delete();
+
+      $deleteLokasi = DB::table('lokasi')
+                          ->where('idHotel', $id)
+                          ->delete();
+
+      $deleteFasilitas = DB::table('fasilitashotel')
+                             ->where('idHotel', $id)
+                             ->delete();
+
+      $queryKamar = DB::table('kamar')
+                        ->where('idHotel', $id)
+                        ->get();
+
+      foreach ($queryKamar as $kamar) {
+        $kamarTransaction = DB::table('transaction')
+                                 ->where('idKamar', $kamar->id)
+                                 ->delete();
+        $kamarFacilities = DB::table('fasilitaskamar')
+                                ->where('idKamar', $kamar->id)
+                                ->delete();
+        $kamarPhotos = DB::table('fotoKamar')
+                            ->where('idKamar', $kamar->id)
+                            ->delete();
+        $delete = DB::table('kamar')
+                      ->where('id', $kamar->id)
+                      ->delete();
+      }
+
+      $delete = DB::table('hotel')
+                    ->where('id', $id)
+                    ->delete();
+
+      DB::commit();
+      if(!$delete){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error!']);
+      }
+
+      return redirect()->route('hotels')->with('status', 'Deleted successfully!');
+
+    }
 }
