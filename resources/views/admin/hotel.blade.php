@@ -101,7 +101,7 @@
   </div>
   <hr>
   <div class="row">
-    <a role="button" href="#" class="btn btn-danger">Delete hotel</a>
+    <a role="button" href="{{url('/admin/delete/hotel/'.$id)}}" class="btn btn-danger">Delete hotel</a>
   </div>
 </div>
 @endsection

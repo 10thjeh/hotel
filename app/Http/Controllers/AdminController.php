@@ -32,7 +32,8 @@ class AdminController extends Controller
         'listOfFacilities' => $listOfFacilities,
         'hotelFacilities' => $hotelFacilities,
         'locations' => $locations,
-        'hotelLocation' => $hotelLocation
+        'hotelLocation' => $hotelLocation,
+        'id' => $id
       ]);
     }
 
@@ -203,5 +204,16 @@ class AdminController extends Controller
       return AdminModel::updateRoom($id, $namaKamar, $deskripsi, $harga, $qty);
     }
 
+    /*===============
+    Delete functions
+    ===============*/
+
+    function removeroom($id){
+      return AdminModel::removeRoom($id);
+    }
+
+    function removehotel($id){
+      return AdminModel::removeHotel($id);
+    }
 
 }
