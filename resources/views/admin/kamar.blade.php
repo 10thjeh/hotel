@@ -44,5 +44,24 @@
       </ul>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h2>Fasilitas</h2>
+      <form action="{{url('/admin/room/update/f')}}" method="post">
+        @csrf
+        <input type="text" name="id" value="{{$room->id}}" hidden>
+        @foreach($listOfFacilities as $facility)
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="{{$facility->nama}}" value="{{$facility->id}}" id="{{$facility->id}}" <?php if(in_array($facility->id, $roomFacilities)) echo "checked" ?>>
+            <label class="form-check-label" for="{{$facility->id}}">
+              {{$facility->nama}}
+            </label>
+          </div>
+        @endforeach
+        <button type="submit" class="btn btn-primary">Update facility</button>
+      </form>
+    </div>
+  </div>
 </div>
 @endsection

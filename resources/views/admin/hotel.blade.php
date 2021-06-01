@@ -36,7 +36,9 @@
   @endforeach
   <hr>
   <div class="row">
-    <a role="button" href="#" class="btn btn-primary">+Kamar</a>
+    @foreach($hotels as $hotel)
+      <a role="button" href="{{url('/admin/new/room/'.$hotel->id)}}" class="btn btn-primary">+Kamar</a>
+    @endforeach
   </div>
   <div class="row">
     <h2>Kamar</h2>

@@ -38,7 +38,13 @@ class AdminController extends Controller
 
     function kamar($id){
       $rooms = AdminModel::room($id);
-      return view('admin/kamar', ['rooms' => $rooms]);
+      $listOfFacilities = AdminModel::roomFacilities();
+      $roomFacilities = AdminModel::roomFacilities($id);
+      return view('admin/kamar', [
+        'rooms' => $rooms,
+        'listOfFacilities' => $listOfFacilities,
+        'roomFacilities' => $roomFacilities
+      ]);
     }
 
     /*Gives the new hotel form*/
@@ -100,6 +106,31 @@ class AdminController extends Controller
       return AdminModel::newRoomFacility($fasilitas);
     }
 
+    /*Gives the new room form*/
+    function newroom($id){
+      $hotels = AdminModel::hotel($id);
+      return view('admin/new/room', ['hotels' => $hotels, 'id' => $id]);
+    }
+
+    /*submit new room*/
+    function submitnewroom(Request $request){
+      $request->validate([
+        'idHotel' => 'required|numeric',
+        'nama' => 'required',
+        'deskripsi' => 'required',
+        'harga' => 'required|min:0|numeric|multiple_of:1',
+        'qty' => 'required|min:0|numeric|multiple_of:1'
+      ]);
+
+      $id = $request->idHotel;
+      $nama = $request->nama;
+      $deskripsi = $request->deskripsi;
+      $harga = $request->harga;
+      $qty = $request->qty;
+
+      return AdminModel::newRoom($id, $nama, $deskripsi, $harga, $qty);
+    }
+
     /*=========================================
     | Update functions
     | updatehoteld(Request $request) -> Update Deskripsi hotel dan rating hotel
@@ -127,6 +158,17 @@ class AdminController extends Controller
       $id = $request->id;
       $facilities = array_slice($response, 2);
       return AdminModel::updateHotelF($id, $facilities);
+    }
+
+    /*Update fasilitas kamar*/
+    function updateroomf(Request $request){
+      $response = request()->all();
+      $request->validate([
+        'id' => 'required|numeric'
+      ]);
+      $id = $request->id;
+      $facilities = array_slice($response, 2);
+      return AdminModel::updateRoomF($id, $facilities);
     }
 
     /*Update lokasi hotel*/
