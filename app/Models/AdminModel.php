@@ -114,6 +114,28 @@ class AdminModel extends Model
       return redirect()->back()->with('status', 'Update successful!');
     }
 
+    /*Create new hotel room*/
+    static function newRoom($id, $nama, $deskripsi, $harga, $qty){
+      DB::beginTransaction();
+      $query = DB::table('kamar')
+                   ->insert([
+                     'id' => (int)'',
+                     'idHotel' => $id,
+                     'namaKamar' => $nama,
+                     'deskripsi' => $deskripsi,
+                     'harga' => $harga,
+                     'qty' => $qty,
+                     'qtyReady' => $qty
+                   ]);
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error']);
+      }
+
+      return redirect()->back()->with('status', 'Successfully added new room!');
+
+    }
   /*===================
   Read functions
   ====================*/
@@ -163,6 +185,26 @@ class AdminModel extends Model
       $query = DB::table('fasilitashotel')
                    ->where('idHotel', $id)
                    ->get();
+      foreach ($query as $q) {
+        array_push($facilityArray, $q->idFasilitas);
+      }
+
+      return $facilityArray;
+    }
+
+    /*Get room facilities*/
+    static function roomFacilities($id=''){
+      if($id == ''){
+        $query = DB::table('fasilitaskamardetail')
+                     ->get();
+        return $query;
+      }
+
+      $facilityArray = [];
+      $query = DB::table('fasilitaskamar')
+                   ->where('idKamar', $id)
+                   ->get();
+
       foreach ($query as $q) {
         array_push($facilityArray, $q->idFasilitas);
       }
@@ -236,6 +278,7 @@ class AdminModel extends Model
       return redirect()->back()->with('status', 'Update successful');
     }
 
+
     /*Update kamar hotel*/
     static function updateRoom($id, $namaKamar, $deskripsi, $harga, $qty){
       DB::beginTransaction();
@@ -255,6 +298,30 @@ class AdminModel extends Model
       }
 
       return redirect()->back()->with('status', 'Update successful!');
+    }
+
+    /*Update fasilitas kamar*/
+    static function updateRoomF($id, $facilities){
+      //Drop all facilities
+      $query = DB::table('fasilitaskamar')
+                   ->where('idKamar', $id)
+                   ->delete();
+
+      foreach ($facilities as $facility) {
+        DB::beginTransaction();
+        $query = DB::table('fasilitaskamar')
+                     ->insert([
+                       'idKamar' => $id,
+                       'idFasilitas' => $facility
+                     ]);
+        DB::commit();
+        if(!$query){
+          DB::rollback();
+          return redirect()->back()->withErrors(['errors' => 'Error: Cannot add facility']);
+        }
+      }
+
+      return redirect()->back()->with('status', 'Update successful');
     }
 
     /*Update lokasi hotel*/

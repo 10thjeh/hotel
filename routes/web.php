@@ -26,6 +26,7 @@ Route::get('/admin/room/{id}', [AdminController::class, 'kamar']);
 Route::get('/admin/new/hotel', [AdminController::class, 'newhotel']);
 Route::get('/admin/new/location', [AdminController::class, 'newlocation']);
 Route::get('/admin/new/facility', [AdminController::class, 'newfacility']);
+Route::get('/admin/new/room/{id}', [AdminController::class, 'newroom']);
 
 //Post routes
 Route::post('/admin/hotels/update/d', [AdminController::class, 'updatehoteld']);
@@ -36,3 +37,5 @@ Route::post('/admin/new/hotel', [AdminController::class, 'submitnewhotel']);
 Route::post('/admin/new/location', [AdminController::class, 'submitnewlocation']);
 Route::post('/admin/new/facility/hotel', [AdminController::class, 'submithotelfacility']);
 Route::post('/admin/new/facility/room', [AdminController::class, 'submitroomfacility']);
+Route::post('/admin/new/room', [AdminController::class, 'submitnewroom']);
+Route::post('/admin/room/update/f', [AdminController::class, 'updateroomf']);
