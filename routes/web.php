@@ -29,11 +29,15 @@ Route::get('/admin/new/facility', [AdminController::class, 'newfacility']);
 Route::get('/admin/new/room/{id}', [AdminController::class, 'newroom']);
 Route::get('/admin/delete/room/{id}', [AdminController::class, 'removeroom']);
 Route::get('/admin/delete/hotel/{id}', [AdminController::class, 'removehotel']);
+Route::get('/admin/delete/hotel/image/{name}', [AdminController::class, 'removehotelimage']);
+Route::get('/admin/delete/room/image/{name}', [AdminController::class, 'removeroomimage']);
 
 //Post routes
 Route::post('/admin/hotels/update/d', [AdminController::class, 'updatehoteld']);
 Route::post('/admin/hotels/update/f', [AdminController::class, 'updatehotelf']);
 Route::post('/admin/hotels/update/p', [AdminController::class, 'updatelocation']);
+Route::post('/admin/hotels/image', [AdminController::class, 'addhotelimage']);
+Route::post('/admin/room/image', [AdminController::class, 'addroomimage']);
 Route::post('/admin/room/update', [AdminController::class, 'updateroom']);
 Route::post('/admin/new/hotel', [AdminController::class, 'submitnewhotel']);
 Route::post('/admin/new/location', [AdminController::class, 'submitnewlocation']);

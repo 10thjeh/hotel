@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AdminModel;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
+    /*================
+    Read functions
+    =================*/
+
     /*Index*/ /**/
     function index(){
       return view('admin/index');
@@ -26,6 +31,7 @@ class AdminController extends Controller
       $hotelFacilities = AdminModel::hotelFacilities($id);
       $locations = AdminModel::location();
       $hotelLocation = AdminModel::location($id);
+      $photos = AdminModel::hotelPhotos($id);
       return view('admin/hotel', [
         'hotels' => $hotels,
         'rooms' => $rooms,
@@ -33,6 +39,7 @@ class AdminController extends Controller
         'hotelFacilities' => $hotelFacilities,
         'locations' => $locations,
         'hotelLocation' => $hotelLocation,
+        'photos' => $photos,
         'id' => $id
       ]);
     }
@@ -41,10 +48,12 @@ class AdminController extends Controller
       $rooms = AdminModel::room($id);
       $listOfFacilities = AdminModel::roomFacilities();
       $roomFacilities = AdminModel::roomFacilities($id);
+      $photos = AdminModel::roomPhotos($id);
       return view('admin/kamar', [
         'rooms' => $rooms,
         'listOfFacilities' => $listOfFacilities,
-        'roomFacilities' => $roomFacilities
+        'roomFacilities' => $roomFacilities,
+        'photos' => $photos
       ]);
     }
 
@@ -132,6 +141,34 @@ class AdminController extends Controller
       return AdminModel::newRoom($id, $nama, $deskripsi, $harga, $qty);
     }
 
+    /*Add new hotel image*/
+    function addhotelimage(Request $request){
+      $request->validate([
+        'id' => 'required|numeric',
+        'gambar' => 'required|image'
+      ]);
+
+      $namaGambar = Str::random(20).'.'.$request->gambar->extension();
+      $request->gambar->move(public_path('image/hotel'), $namaGambar);
+
+      $id = $request->id;
+      return AdminModel::addHotelImage($id, $namaGambar);
+    }
+
+    /*Add new room image*/
+    function addroomimage(Request $request){
+      $request->validate([
+        'id' => 'required|numeric',
+        'gambar' => 'required|image'
+      ]);
+
+      $namaGambar = Str::random(20).'.'.$request->gambar->extension();
+      $request->gambar->move(public_path('image/room'), $namaGambar);
+
+      $id = $request->id;
+      return AdminModel::addRoomImage($id, $namaGambar);
+    }
+
     /*=========================================
     | Update functions
     | updatehoteld(Request $request) -> Update Deskripsi hotel dan rating hotel
@@ -216,4 +253,11 @@ class AdminController extends Controller
       return AdminModel::removeHotel($id);
     }
 
+    function removehotelimage($name){
+      return AdminModel::removeHotelImage($name);
+    }
+
+    function removeroomimage($name){
+      return AdminModel::removeRoomImage($name);
+    }
 }

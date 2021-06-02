@@ -136,6 +136,42 @@ class AdminModel extends Model
       return redirect()->back()->with('status', 'Successfully added new room!');
 
     }
+
+    /*Create new image for hotel*/
+    static function addHotelImage($id, $namaGambar){
+      DB::beginTransaction();
+      $query = DB::table('fotohotel')
+                   ->insert([
+                     'idHotel' => $id,
+                     'foto' => $namaGambar
+                   ]);
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error']);
+      }
+
+      return redirect()->back()->with('status', 'Successfully added new photo!');
+    }
+
+    /*Create new image for room*/
+    static function addRoomImage($id, $namaGambar){
+      DB::beginTransaction();
+      $query = DB::table('fotokamar')
+                   ->insert([
+                     'idKamar' => $id,
+                     'foto' => $namaGambar
+                   ]);
+     DB::commit();
+     if(!$query){
+       DB::rollback();
+       return redirect()->back()->withErrors(['errors' => 'Error : unknown error']);
+     }
+
+     return redirect()->back()->with('status', 'Successfully added new photo!');
+    }
+
+
   /*===================
   Read functions
   ====================*/
@@ -231,6 +267,21 @@ class AdminModel extends Model
       return $lokasi;
     }
 
+    /*Get hotel photos*/
+    static function hotelPhotos($id){
+      $query = DB::table('fotohotel')
+                   ->where('idHotel', $id)
+                   ->get();
+      return $query;
+    }
+
+    /*Get room photos*/
+    static function roomPhotos($id){
+      $query = DB::table('fotokamar')
+                   ->where('idKamar', $id)
+                   ->get();
+      return $query;
+    }
 
     /* ==============
     Update functions
@@ -425,5 +476,33 @@ class AdminModel extends Model
 
       return redirect()->route('hotels')->with('status', 'Deleted successfully!');
 
+    }
+
+    /*Remove hotel photo*/
+    static function removeHotelImage($name){
+      DB::beginTransaction();
+      $query = DB::table('fotohotel')
+                   ->where('foto', $name)
+                   ->delete();
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error!']);
+      }
+      return redirect()->back()->with('status', 'Deleted successfully!');
+    }
+
+    /*remove room photo*/
+    static function removeRoomImage($name){
+      DB::beginTransaction();
+      $query = DB::table('fotokamar')
+                   ->where('foto', $name)
+                   ->delete();
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : unknown error!']);
+      }
+      return redirect()->back()->with('status', 'Deleted successfully!');
     }
 }
