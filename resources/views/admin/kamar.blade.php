@@ -35,13 +35,38 @@
     </div>
     <div class="col">
       <h2>Photos</h2>
-      <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul>
+      @if(count($photos) == 0)
+      <p>If you seeing this message, you need to add photos</p>
+      @endif
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          @foreach($photos as $photo)
+          <div class="carousel-item @if($loop->first) active @endif">
+            <img src="{{url('image/room/'.$photo->foto)}}" class="d-block w-100" height="300px">
+            <div class="carousel-caption d-none d-md-block">
+              <a href="{{url('/admin/delete/room/image/'.$photo->foto)}}" class="btn btn-danger" role="button">Delete</a>
+            </div>
+          </div>
+          @endforeach
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <p>*Images can be stretched for admin display purposes, the original dimensions are not changed</p>
+      <form action="{{url('/admin/room/image')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="text" name="id" value="{{$room->id}}" hidden>
+        <div class="mb-3">
+          <input type="file" accept="image/*" name="gambar" id="gambar">
+        </div>
+        <button type="submit" class="btn btn-primary" name="button">Add</button>
+      </form>
     </div>
   </div>
   <hr>
