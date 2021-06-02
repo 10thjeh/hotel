@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,7 @@ Route::post('/admin/new/facility/hotel', [AdminController::class, 'submithotelfa
 Route::post('/admin/new/facility/room', [AdminController::class, 'submitroomfacility']);
 Route::post('/admin/new/room', [AdminController::class, 'submitnewroom']);
 Route::post('/admin/room/update/f', [AdminController::class, 'updateroomf']);
+
+
+//Home
+Route::get('/',[HomeController::Class,'index']);
