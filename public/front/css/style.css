@@ -169,7 +169,7 @@ button:focus {
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
-  background: #f3c300;
+  background: #395ac9;
   padding: 5px 30px;
 }
 
@@ -246,7 +246,7 @@ button:focus {
 .book_now_btn {
   width: 100%;
   display: block;
-  background: #f3c300;
+  background: #395ac9;
   color: #222222;
   text-transform: uppercase;
   font-size: 14px;
@@ -349,7 +349,7 @@ button:focus {
 }
 
 .navbar .menu_nav .nav-item:hover .nav-link, .navbar .menu_nav .nav-item.active .nav-link {
-  color: #52c5fd;
+  color: #395ac9;
 }
 
 .navbar .menu_nav .nav-item.submenu {
@@ -436,7 +436,7 @@ button:focus {
 
 .navbar .menu_nav .nav-item.submenu ul .nav-item:hover .nav-link {
   background: #f0f0f0;
-  color: #52c5fd;
+  color: #395ac9;
 }
 
 @media (min-width: 992px) {
@@ -500,7 +500,7 @@ button:focus {
 }
 
 .banner_area .bg-parallax {
-  background: url("../image/banner_bg.jpg") no-repeat scroll center 0/cover;
+  background: url("../image/bannerhotel2.gif") no-repeat scroll center 0/cover;
   opacity: 0.50;
 }
 
@@ -586,30 +586,30 @@ button:focus {
 }
 
 .book_tabel_item .form-group .input-group .form-control {
-  border: 1px solid #2b3146;
+  border: 1px solid white;
   background: transparent;
   border-radius: 0px;
   font-size: 13px;
   line-height: 38px;
   padding: 0px 20px;
-  color: #777777;
+  color: #777;
   z-index: 0;
 }
 
 .book_tabel_item .form-group .input-group .form-control.placeholder {
-  color: #777777;
+  color: #777;
 }
 
 .book_tabel_item .form-group .input-group .form-control:-moz-placeholder {
-  color: #777777;
+  color: #777;
 }
 
 .book_tabel_item .form-group .input-group .form-control::-moz-placeholder {
-  color: #777777;
+  color: #777;
 }
 
 .book_tabel_item .form-group .input-group .form-control::-webkit-input-placeholder {
-  color: #777777;
+  color: #777;
 }
 
 .book_tabel_item .form-group .input-group .form-control:focus {
@@ -639,7 +639,7 @@ button:focus {
 .book_tabel_item .nice-select {
   background: transparent;
   border-radius: 0px;
-  border: 1px solid #2b3146;
+  border: 1px solid white;
   font-size: 13px;
   line-height: 40px;
   height: 40px;
@@ -848,7 +848,7 @@ button:focus {
 }
 
 .facilities_item .sec_h4 i {
-  color: #f3c300;
+  color: #395ac9;
   font-size: 24px;
   line-height: 38px;
   display: inline-block;
