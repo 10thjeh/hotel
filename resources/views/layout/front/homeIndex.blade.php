@@ -4,8 +4,8 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="{{asset('front/image/favicon.png')}}" type="image/png">
-        <title>Royal Hotel</title>
+        <link rel="icon" href="{{asset('front/image/LogoAwal.png')}}" type="image/png">
+        <title>Crustycation</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{asset('front/css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('front/vendors/linericon/style.css')}}">
