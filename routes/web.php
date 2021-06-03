@@ -51,12 +51,8 @@ Route::post('/admin/room/update/f', [AdminController::class, 'updateroomf'])->mi
 
 
 //Home
-//Get routes
-Route::get('/', [HomeController::class,'index'])->name('home');
-Route::get('/register', [LoginController::class,'registerview']);
-Route::get('/login', [LoginController::class,'loginview'])->name('login');
-Route::get('/logout', [LoginController::class, 'logout']);
-
-//Post routes
-Route::post('/register', [LoginController::class, 'register']);
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('/',[HomeController::Class,'index'])->name('home');;
+Route::get('/register',[LoginController::Class,'registerview']);
+Route::get('/login',[LoginController::Class,'loginview'])->name('login');
+Route::post('/register/auth', [LoginController::class, 'register']);
+Route::post('/login/auth', [LoginController::class, 'login']);
