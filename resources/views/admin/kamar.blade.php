@@ -89,6 +89,26 @@
         <button type="submit" class="btn btn-primary">Update facility</button>
       </form>
     </div>
+    <div class="col">
+      <h2>Akomodasi</h2>
+      <form action="{{url('/admin/room/accomodation')}}" method="post">
+        @csrf
+        <input type="text" name="id" value="{{$room->id}}" hidden>
+        <div class="mb-3">
+          <h2>Orang</h2>
+          <input type="number" min="0" class="form-control" name="orang" id="orang" value="{{$room->orang}}">
+        </div>
+        <div class="mb-3">
+          <h2>Tempat tidur</h2>
+          <input type="number" min="0" class="form-control" name="tempatTidur" id="tempatTidur" value="{{$room->kasur}}">
+        </div>
+        <div class="mb-3">
+          <h2>Kamar mandi</h2>
+          <input type="number" min="0" class="form-control" name="kamarMandi" id="kamarMandi" value="{{$room->kamarMandi}}">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Update">
+      </form>
+    </div>
   </div>
 </div>
 @endsection

@@ -390,6 +390,24 @@ class AdminModel extends Model
       return redirect()->back()->with('status', 'Update successful!');
     }
 
+    static function updateRoomA($id, $orang, $tempatTidur, $kamarMandi){
+      DB::beginTransaction();
+      $query = DB::table('kamar')
+                   ->where('id', $id)
+                   ->update([
+                     'orang' => $orang,
+                     'kasur' => $tempatTidur,
+                     'kamarMandi' => $kamarMandi
+                   ]);
+      DB::commit();
+      if(!$query){
+        DB::rollback();
+        return redirect()->back()->withErrors(['errors' => 'Error : failed to update']);
+      }
+
+      return redirect()->back()->with('status', 'Update successful!');
+    }
+
     /*==============
     Delete functions
     ===============*/

@@ -241,6 +241,24 @@ class AdminController extends Controller
       return AdminModel::updateRoom($id, $namaKamar, $deskripsi, $harga, $qty);
     }
 
+    /*Update akomodasi*/
+    function updaterooma(Request $request){
+      $request->validate([
+        'id' => 'required|numeric',
+        'orang' => 'required|numeric|min:0|multiple_of:1',
+        'tempatTidur' => 'required|numeric|min:0|multiple_of:1',
+        'kamarMandi' => 'required|numeric|min:0|multiple_of:1'
+      ]);
+
+      $id = $request->id;
+      $orang = $request->orang;
+      $tempatTidur = $request->tempatTidur;
+      $kamarMandi = $request->kamarMandi;
+
+      return AdminModel::updateRoomA($id, $orang, $tempatTidur, $kamarMandi);
+    }
+
+
     /*===============
     Delete functions
     ===============*/

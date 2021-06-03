@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\RequireLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,14 +50,20 @@ Route::post('/admin/new/facility/hotel', [AdminController::class, 'submithotelfa
 Route::post('/admin/new/facility/room', [AdminController::class, 'submitroomfacility'])->middleware(AdminAuth::class);
 Route::post('/admin/new/room', [AdminController::class, 'submitnewroom'])->middleware(AdminAuth::class);
 Route::post('/admin/room/update/f', [AdminController::class, 'updateroomf'])->middleware(AdminAuth::class);
+Route::post('/admin/room/accomodation', [AdminController::class, 'updaterooma']);
 
 
 //Home
+//GET routes
+Route::get('/',[HomeController::class,'index']);
+Route::get('/home',[HomeController::class,'index'])->name('home');
+Route::get('/register',[LoginController::class,'registerview']);
+Route::get('/login',[LoginController::class,'loginview'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/user', [UserController::class, 'showuser'])->middleware(RequireLogin::class);
 
-Route::get('/',[HomeController::Class,'index']);
-Route::get('/home',[HomeController::Class,'index'])->name('home');
-
-Route::get('/register',[LoginController::Class,'registerview']);
-Route::get('/login',[LoginController::Class,'loginview'])->name('login');
-Route::post('/register/auth', [LoginController::class, 'register']);
-Route::post('/login/auth', [LoginController::class, 'login']);
+//POST routes
+Route::post('/register', [LoginController::class, 'register']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/user', [UserController::class, 'submit'])->middleware(RequireLogin::class);
+Route::post('/user/image', [UserController::class, 'image'])->middleware(RequireLogin::class);
