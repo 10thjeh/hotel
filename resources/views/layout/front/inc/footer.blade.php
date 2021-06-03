@@ -48,9 +48,9 @@
                 </div>
                 <div class="border_line"></div>
                 <div class="row footer-bottom d-flex justify-content-between align-items-center">
-                    <ps class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <ps class="col-lg-8 col-sm-12 footer-text m-0">
 Crustycation &copy;<script>document.write(new Date().getFullYear());</script> | Educational Purpose Only
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></ps>
+</ps>
                     <div class="col-lg-4 col-sm-12 footer-social">
                         <a href="#"><i class="fa fa-instagram"></i> Farrel</a>
                         <a href="#"><i class="fa fa-instagram"></i> Jesse</a>
