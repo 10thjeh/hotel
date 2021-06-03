@@ -11,7 +11,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+                          @if(session('isLoggedIn') == True)
+                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">{{session('name')}}</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/cart')}}">Cart</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/logout')}}">Log Out</a></li>
+                          @endif
+                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
                             <li class="nav-item"><a class="nav-link" href="accomodation.html">Accomodation</a></li>
                             <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
@@ -21,11 +26,11 @@
                                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                                     <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
                                 </ul>
-                            </li> 
+                            </li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Sign Up</a></li>
                         </ul>
-                    </div> 
+                    </div>
                 </nav>
             </div>
         </header>
