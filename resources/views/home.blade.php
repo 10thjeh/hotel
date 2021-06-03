@@ -2,15 +2,15 @@
 @section('content')
 
 <!--================Banner Area =================-->
-<section class="banner_area">
-            <div class="booking_table d_flex align-items-center">
+<section class="banner_area" id="header">
+            <div class="booking_table d_flex align-items-center" >
             	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
 				<div class="container">
 					<div class="banner_content text-center">
 						<h6>Memiliki rasa jenuh karena UAS?</h6>
 						<h2>Rilekskan Pikiran Anda</h2>
 						<p>Kami menyediakan berbagai macam Hotel dengan kualitas dunia<br> Kenyamanan Pelanggan adalah Tujuan Kami</p>
-						<a href="{{url('#akomodasigan')}}" class="btn theme_btn button_hover js-scroll-trigger">Mari Lihat</a>
+						<a href="{{url('home#akomodasigan')}}" class="btn theme_btn button_hover js-scroll-trigger">Mari Lihat</a>
 					</div>
 				</div>
             </div>
@@ -137,7 +137,7 @@
         <!--================ Accomodation Area  =================-->
         
         <!--================ Facilities Area  =================-->
-        <section class="facilities_area section_gap">
+        <section class="facilities_area section_gap" id="fasilitas">
             <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="">  
             </div>
             <div class="container">
@@ -188,7 +188,7 @@
         <!--================ Facilities Area  =================-->
         
         <!--================ About History Area  =================-->
-        <section class="about_history_area section_gap">
+        <section class="about_history_area section_gap" id="about">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 d_flex align-items-center">
@@ -260,57 +260,6 @@
             </div>
         </section>
         <!--================ Testimonial Area  =================-->
-        <script>
-        (function ($) {
-    "use strict"; // Start of use strict
-
-    // Smooth scrolling using anime.js
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').on('click', function () {
-        if (
-            location.pathname.replace(/^\//, "") ==
-            this.pathname.replace(/^\//, "") &&
-            location.hostname == this.hostname
-        ) {
-            var target = $(this.hash);
-            target = target.length ?
-                target :
-                $("[name=" + this.hash.slice(1) + "]");
-            if (target.length) {
-                anime({
-                    targets: 'html, body',
-                    scrollTop: target.offset().top - 72,
-                    duration: 1000,
-                    easing: 'easeInOutExpo'
-                });
-                return false;
-            }
-        }
-    });
-
-    // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function () {
-        $(".navbar-collapse").collapse("hide");
-    });
-
-    // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-        target: "#mainNav",
-        offset: 100,
-    });
-
-    // Collapse Navbar
-    var navbarCollapse = function () {
-        if ($("#mainNav").offset().top > 100) {
-            $("#mainNav").addClass("navbar-shrink");
-        } else {
-            $("#mainNav").removeClass("navbar-shrink");
-        }
-    };
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
-})(jQuery); // End of use strict
-        </script>
+        
 
 @endsection

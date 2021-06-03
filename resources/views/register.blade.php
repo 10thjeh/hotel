@@ -1,4 +1,4 @@
-@extends('Login/indexLogin')
+@extends('layout/front/homeIndex')
 @section('content')
 
 

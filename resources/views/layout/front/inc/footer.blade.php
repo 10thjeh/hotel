@@ -14,37 +14,22 @@
                                 <div class="col-4">
                                     <ul class="list_style">
                                         <li><a href="#">Home</a></li>
-                                        <li><a href="#">Feature</a></li>
-                                        <li><a href="#">Services</a></li>
-                                        <li><a href="#">Portfolio</a></li>
+                                        <li><a href="{{url('home#fasilitas')}}">Facilities</a></li> 
+                                        <li><a href="{{url('home#about')}}">About us</a></li>
+                                        <li><a href="#">Hotel</a></li>
+                            
                                     </ul>
                                 </div>
                                 <div class="col-4">
                                     <ul class="list_style">
-                                        <li><a href="#">Team</a></li>
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="#">Hotel</a></li>
+                                        <li><a href="{{url('home#akomodasigan')}}">Accomodation</a></li>
+                                        <li><a href="{{url('/register')}}">Sign Up</a></li>
                                     </ul>
                                 </div>										
                             </div>							
                         </div>
                     </div>							
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">Newsletter</h6>
-                            <p>For business professionals caught between high OEM price and mediocre print and graphic output, </p>		
-                            <div id="mc_embed_signup">
-                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                                    <div class="input-group d-flex flex-row">
-                                        <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-location"></span></button>		
-                                    </div>									
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-footer-widget instafeed">
                             <h6 class="footer_title">InstaFeed</h6>
@@ -67,10 +52,9 @@
 Crustycation &copy;<script>document.write(new Date().getFullYear());</script> | Educational Purpose Only
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></ps>
                     <div class="col-lg-4 col-sm-12 footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i> Farrel</a>
+                        <a href="#"><i class="fa fa-instagram"></i> Jesse</a>
+                        <a href="#"><i class="fa fa-instagram"></i> Darwin</a>
                     </div>
                 </div>
             </div>
