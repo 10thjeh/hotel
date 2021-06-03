@@ -23,7 +23,7 @@
                 </ul>
               </div>
               @endif
-              <form method="post" action="{{url('/login/auth')}}">
+              <form method="post" action="{{url('/login')}}">
                 @csrf
                 <div class="form-label-group">
                   <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>

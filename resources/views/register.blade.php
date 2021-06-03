@@ -24,7 +24,7 @@
               </ul>
             </div>
             @endif
-            <form class="form-signin" method="post" action="{{url('register/auth')}}">
+            <form class="form-signin" method="post" action="{{url('register')}}" enctype="multipart/form-data">
               @csrf
               <div class="form-label-group">
                 <input type="text" id="nama" class="form-control" name="nama" placeholder="Nama" required autofocus>
@@ -37,7 +37,7 @@
               </div>
 
               <div class="form-label-group">
-                <input type="text" id="tanggalLahir" class="form-control" name="tanggalLahir" placeholder="tanggalLahir" required autofocus>
+                <input type="date" id="tanggalLahir" class="form-control" name="tanggalLahir" placeholder="tanggalLahir" required autofocus>
                 <label for="tanggalLahir">Tanggal Lahir</label>
               </div>
 
@@ -56,6 +56,11 @@
               <div class="form-label-group">
                 <input type="password" id="inputConfirmPassword" class="form-control" name="confirmPassword" placeholder="Password" required>
                 <label for="inputConfirmPassword">Confirm password</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="file" accept="image/*" name="foto" id="foto">
+                <label for="foto">Foto diri</label>
               </div>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
