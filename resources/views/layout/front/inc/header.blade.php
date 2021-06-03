@@ -22,8 +22,8 @@
                                     <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
                                 </ul>
                             </li> 
-                            <li class="nav-item"><a class="nav-link" href="elements.html">Elemests</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Sign Up</a></li>
                         </ul>
                     </div> 
                 </nav>
