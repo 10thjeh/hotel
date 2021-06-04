@@ -101,7 +101,7 @@
                                         <div class="location">Warsaw, Poland</div>
                                         <div class="price">38€ / day</div>
                                         <label for="" class="buttons return" aria-hidden="true">
-                                            <a>BOOK NOW</a>
+                                            <a href="{{url('/details')}}">BOOK NOW</a>
                                         </label>
                                     </div>
                                 </div>
