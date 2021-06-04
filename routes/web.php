@@ -70,10 +70,11 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/user', [UserController::class, 'submit'])->middleware(RequireLogin::class);
 Route::post('/user/image', [UserController::class, 'image'])->middleware(RequireLogin::class);
 
+Route::post('/hotel', [HomeController::class, 'hotel']);
+
 //Hotel
 //GET routes
 Route::GET('/hotellist',[HotelController::class,'index']);
-
 //Invoice
 //Get Routes
 Route::get('/invoice',[InvoiceController::class,'index']);
