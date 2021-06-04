@@ -18,6 +18,7 @@ README
   fasilitasKamar()        : get all fasilitas kamar
   fasilitasKamar($id)     : get fasilitas kamar with id $id
   city()                  : get all cities
+  featuredHotel()         : return 3 random hotel
 
 */
 
@@ -105,6 +106,15 @@ class HotelModel extends Model
                    ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
                    ->where('lokasi.idLokasi', $city)
                    ->get();
+      return $query;
+    }
+
+    static function featuredHotel(){
+      $query = DB::table('hotel')
+               ->inRandomOrder()
+               ->take(3)
+               ->get();
+
       return $query;
     }
 
