@@ -124,7 +124,10 @@ class AdminModel extends Model
                      'namaKamar' => $nama,
                      'deskripsi' => $deskripsi,
                      'harga' => $harga,
-                     'qty' => $qty
+                     'qty' => $qty,
+                     'orang' => 0,
+                     'kasur' => 0,
+                     'kamarMandi' => 0
                    ]);
       DB::commit();
       if(!$query){
