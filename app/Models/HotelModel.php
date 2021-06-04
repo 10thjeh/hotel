@@ -35,7 +35,7 @@ class HotelModel extends Model
       if($id == ''){
         $query = DB::table('hotel')
                      ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
-                     ->join('lokasidetail', 'lokasi.id', '=', 'lokasidetail.idLokasi')
+                     ->join('lokasidetail', 'lokasi.idLokasi', '=', 'lokasidetail.idLokasi')
                      ->get();
         return $query;
       }

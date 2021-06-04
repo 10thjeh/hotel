@@ -26,7 +26,7 @@
                 <div class="page-cover text-center">
                     <h2 class="page-cover-tittle">Silahkan Pilih Hotel</h2>
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{url('home')}}">Home</a></li>
                         <li class="active">Hotel</li>
                     </ol>
                 </div>
@@ -44,12 +44,14 @@
                 </div>
                 </div>
                     <div class="wrappers">
+                    @foreach($hotels as $hotel)
                         <div class="cards">
-                            <input type="checkbox" id="cards1" class="more" aria-hidden="true">
+                            <input type="checkbox" id="{{$hotel->id}}" class="more" aria-hidden="true">
                             <div class="contents">
-                                <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
+                                <div class="front">
+                                <img src="{{url('image/hotel/'.$photo->foto)}}" style="  position: absolute; top: 0; left: 0;width: 100%; height: 100%;backface-visibility: hidden; transform-style: preserve-3d; border-radius: 6px;">
                                     <div class="inner">
-                                        <h2 style="text-shadow: 4px 2px 5px black;">Cozy apartment</h2>
+                                        <h2 style="text-shadow: 4px 2px 5px black;">{{$hotel->nama}}</h2>
                                         <div class="rating" style="text-shadow: 4px 4px 7px black;">
                                           <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
                                           <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
@@ -57,7 +59,7 @@
                                           <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
                                           <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
                                         </div>
-                                        <label for="cards1" class="buttons" aria-hidden="true">
+                                        <label for="{{$hotel->id}}" class="buttons" aria-hidden="true">
                                             Details
                                         </label>
                                     </div>
@@ -93,13 +95,10 @@
                                             </div>
                                         </div>
                                         <div class="description">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, accusamus.</p>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates earum nostrum ipsam
-                                                ullam, reiciendis nam consectetur? Doloribus voluptate architecto possimus perferendis
-                                                tenetur nemo amet temporibus, enim soluta nam, debitis.</p>
-                                                <label for="cards1" class="buttons return" aria-hidden="true">
-                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                </label>
+                                            <label for="{{$hotel->id}}" class="buttons return" aria-hidden="true">
+                                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                            </label>
+                                            <p>{{$hotel->deskripsi}}</p>
                                         </div>
                                         <div class="location">Warsaw, Poland</div>
                                         <div class="price">38€ / day</div>
@@ -110,138 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cards">
-                            <input type="checkbox" id="cards1" class="more" aria-hidden="true">
-                            <div class="contents">
-                                <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
-                                    <div class="inner">
-                                        <h2 style="text-shadow: 4px 2px 5px black;">Cozy apartment</h2>
-                                        <div class="rating" style="text-shadow: 4px 4px 7px black;">
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                        </div>
-                                        <label for="cards1" class="buttons" aria-hidden="true">
-                                            Details
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="backs">
-                                    <div class="inner">
-                                        <div class="infos">
-                                            <span>5</span>
-                                            <div class="icon">
-                                              <i class="fa fa-users" aria-hidden="true"></i>
-                                                <span>people</span>
-                                            </div>
-                                        </div>
-                                        <div class="infos">
-                                            <span>4</span>
-                                            <div class="icon">
-                                              <i class="fas fa-door-open"></i>
-                                                <span>rooms</span>
-                                            </div>
-                                        </div>
-                                        <div class="infos">
-                                            <span>3</span>
-                                            <div class="icon">
-                                              <i class="fa fa-bed"></i>
-                                                <span>beds</span>
-                                            </div>
-                                        </div>
-                                        <div class="infos">
-                                            <span>1</span>
-                                            <div class="icon">
-                                              <i class="fa fa-bath" aria-hidden="true"></i>
-                                                <span>bath</span>
-                                            </div>
-                                        </div>
-                                        <div class="description">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, accusamus.</p>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates earum nostrum ipsam
-                                                ullam, reiciendis nam consectetur? Doloribus voluptate architecto possimus perferendis
-                                                tenetur nemo amet temporibus, enim soluta nam, debitis.</p>
-                                                <label for="cards1" class="buttons return" aria-hidden="true">
-                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                </label>
-                                        </div>
-                                        <div class="location">Warsaw, Poland</div>
-                                        <div class="price">38€ / day</div>
-                                        <label for="" class="buttons return" aria-hidden="true">
-                                            <a>BOOK NOW</a>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cards">
-                            <input type="checkbox" id="cards1" class="more" aria-hidden="true">
-                            <div class="contents">
-                                <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
-                                    <div class="inner">
-                                        <h2 style="text-shadow: 4px 2px 5px black;">Cozy apartment</h2>
-                                        <div class="rating" style="text-shadow: 4px 4px 7px black;">
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                        </div>
-                                        <label for="cards1" class="buttons" aria-hidden="true">
-                                            Details
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="backs">
-                                    <div class="inner">
-                                        <div class="infos">
-                                            <span>5</span>
-                                            <div class="icon">
-                                              <i class="fa fa-users" aria-hidden="true"></i>
-                                                <span>people</span>
-                                            </div>
-                                        </div>
-                                        <div class="infos">
-                                            <span>4</span>
-                                            <div class="icon">
-                                              <i class="fas fa-door-open"></i>
-                                                <span>rooms</span>
-                                            </div>
-                                        </div>
-                                        <div class="infos">
-                                            <span>3</span>
-                                            <div class="icon">
-                                              <i class="fa fa-bed"></i>
-                                                <span>beds</span>
-                                            </div>
-                                        </div>
-                                        <div class="infos">
-                                            <span>1</span>
-                                            <div class="icon">
-                                              <i class="fa fa-bath" aria-hidden="true"></i>
-                                                <span>bath</span>
-                                            </div>
-                                        </div>
-                                        <div class="description">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, accusamus.</p>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates earum nostrum ipsam
-                                                ullam, reiciendis nam consectetur? Doloribus voluptate architecto possimus perferendis
-                                                tenetur nemo amet temporibus, enim soluta nam, debitis.</p>
-                                                <label for="cards1" class="buttons return" aria-hidden="true">
-                                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                </label>
-                                        </div>
-                                        <div class="location">Warsaw, Poland</div>
-                                        <div class="price">38€ / day</div>
-                                        <label for="" class="buttons return" aria-hidden="true">
-                                            <a>BOOK NOW</a>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                       </div>
                       <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
                       <script src="https://use.fontawesome.com/9ca63657ea.js"></script>
@@ -326,7 +194,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room1.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Double Deluxe Room</h4></a>
@@ -336,7 +204,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room2.jpg" alt="">
+                                <img src="{{asset('front/image/room2.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Single Deluxe Room</h4></a>
@@ -346,7 +214,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room3.jpg" alt="">
+                                <img src="{{asset('front/image/room3.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Honeymoon Suit</h4></a>
@@ -356,7 +224,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room4.jpg" alt="">
+                                <img src="{{asset('front/image/room4.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Economy Double</h4></a>
@@ -366,7 +234,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room1.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Double Deluxe Room</h4></a>
@@ -376,7 +244,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room2.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Single Deluxe Room</h4></a>
@@ -386,7 +254,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room3.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Honeymoon Suit</h4></a>
@@ -396,7 +264,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room4.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}"alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Economy Double</h4></a>
@@ -407,85 +275,6 @@
             </div>
         </section>
         <!--================ Accomodation Area  =================-->
-        <!--================ start footer Area  =================-->	
-        <footer class="footer-area section_gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3  col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">About Agency</h6>
-                            <p>The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">Navigation Links</h6>
-                            <div class="row">
-                                <div class="col-4">
-                                    <ul class="list_style">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Feature</a></li>
-                                        <li><a href="#">Services</a></li>
-                                        <li><a href="#">Portfolio</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-4">
-                                    <ul class="list_style">
-                                        <li><a href="#">Team</a></li>
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>										
-                            </div>							
-                        </div>
-                    </div>							
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">Newsletter</h6>
-                            <p>For business professionals caught between high OEM price and mediocre print and graphic output, </p>		
-                            <div id="mc_embed_signup">
-                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                                    <div class="input-group d-flex flex-row">
-                                        <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-location"></span></button>		
-                                    </div>									
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget instafeed">
-                            <h6 class="footer_title">InstaFeed</h6>
-                            <ul class="list_style instafeed d-flex flex-wrap">
-                                <li><img src="image/instagram/Image-01.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-02.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-03.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-04.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-05.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-06.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-07.jpg" alt=""></li>
-                                <li><img src="image/instagram/Image-08.jpg" alt=""></li>
-                            </ul>
-                        </div>
-                    </div>						
-                </div>
-                <div class="border_line"></div>
-                <div class="row footer-bottom d-flex justify-content-between align-items-center">
-                    <p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    <div class="col-lg-4 col-sm-12 footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-		<!--================ End footer Area  =================-->
         
         
         <!-- Optional JavaScript -->

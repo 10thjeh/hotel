@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Middleware\AdminAuth;
 use App\Http\Middleware\RequireLogin;
 
@@ -67,4 +69,12 @@ Route::post('/register', [LoginController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/user', [UserController::class, 'submit'])->middleware(RequireLogin::class);
 Route::post('/user/image', [UserController::class, 'image'])->middleware(RequireLogin::class);
+
 Route::post('/hotel', [HomeController::class, 'hotel']);
+
+//Hotel
+//GET routes
+Route::GET('/hotellist',[HotelController::class,'index']);
+//Invoice
+//Get Routes
+Route::get('/invoice',[InvoiceController::class,'index']);
