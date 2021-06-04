@@ -48,7 +48,8 @@
                         <div class="cards">
                             <input type="checkbox" id="{{$hotel->id}}" class="more" aria-hidden="true">
                             <div class="contents">
-                                <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
+                                <div class="front">
+                                <img src="{{url('image/hotel/'.$photo->foto)}}" style="  position: absolute; top: 0; left: 0;width: 100%; height: 100%;backface-visibility: hidden; transform-style: preserve-3d; border-radius: 6px;">
                                     <div class="inner">
                                         <h2 style="text-shadow: 4px 2px 5px black;">{{$hotel->nama}}</h2>
                                         <div class="rating" style="text-shadow: 4px 4px 7px black;">
