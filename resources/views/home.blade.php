@@ -14,75 +14,69 @@
 					</div>
 				</div>
             </div>
-            <div class="hotel_booking_area position">
-                <div class="container">
-                    <div class="hotel_booking_table">
-                        <div class="col-md-3">
-                            <h2>Book<br> Your Hotel</h2>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="boking_table">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker11'>
-                                                    <input type='text' class="form-control" placeholder="Arrival Date"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker1'>
-                                                    <input type='text' class="form-control" placeholder="Departure Date"/>
-                                                    <span class="input-group-addon">
-                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                            <div class="input-group">
-                                                <select class="wide">
-                                                    <option data-display="Hotel">Hotel</option>
-                                                    
-                                                    <option value="1">Old</option>
-                                                    <option value="2">Younger</option>
-                                                    <option value="3">Potato</option>
-                                                </select>
-                                            </div>
-                                            <div class="input-group">
-                                                <select class="wide">
-                                                    <option data-display="Room Type">Room Type</option>
-                                                    <option value="1">Child</option>
-                                                    <option value="2">Baby</option>
-                                                    <option value="3">Child</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="book_tabel_item">
-                                           <!-- <div class="input-group">
-                                                <select class="wide">
+            <form action="{{url('/hotel')}}" method="post">
+              @csrf
+              <div class="hotel_booking_area position">
+                  <div class="container">
+                      <div class="hotel_booking_table">
+                          <div class="col-md-3">
+                              <h2>Book<br> Your Hotel</h2>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="boking_table">
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="book_tabel_item">
+                                              <div class="form-group">
+                                                  <div class='input-group date' id='datetimepicker11'>
+                                                      <input type='text' name="arrival" class="form-control" placeholder="Arrival Date"/>
+                                                      <span class="input-group-addon">
+                                                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <div class='input-group date' id='datetimepicker1'>
+                                                      <input type='text' name="departure" class="form-control" placeholder="Departure Date"/>
+                                                      <span class="input-group-addon">
+                                                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="book_tabel_item">
+                                              <div class="input-group">
+                                                  <select class="wide" name="city">
+                                                      <option data-display="Hotel">Lokasi</option>
+                                                      @foreach($cities as $city)
+                                                      <option value="{{$city->idLokasi}}">{{$city->namaLokasi}}</option>
+                                                      @endforeach
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <div class="book_tabel_item">
+                                             <!-- <div class="input-group">
+                                                  <select class="wide">
 
-                                                </select>
-                                            </div>-->
-                                            <a class="book_now_btn button_hover" href="#">Book Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                                  </select>
+                                              </div>-->
+                                              <button type="submit" class="book_now_btn button_hover">Book now</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </form>
         </section>
         <!--================Banner Area =================-->
-        
+
         <!--================ Accomodation Area  =================-->
         <section class="accomodation_area section_gap" id="akomodasigan">
             <div class="container">
@@ -135,10 +129,10 @@
             </div>
         </section>
         <!--================ Accomodation Area  =================-->
-        
+
         <!--================ Facilities Area  =================-->
         <section class="facilities_area section_gap" id="fasilitas">
-            <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="">  
+            <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="">
             </div>
             <div class="container">
                 <div class="section_title text-center">
@@ -186,7 +180,7 @@
             </div>
         </section>
         <!--================ Facilities Area  =================-->
-        
+
         <!--================ About History Area  =================-->
         <section class="about_history_area section_gap" id="about">
             <div class="container">
@@ -205,7 +199,7 @@
             </div>
         </section>
         <!--================ About History Area  =================-->
-        
+
         <!--================ Testimonial Area  =================-->
         <section class="testimonial_area section_gap">
             <div class="container">
@@ -227,7 +221,7 @@
                                 <a href="#"><i class="fa fa-star-half-o"></i></a>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                     <div class="media testimonial_item">
                         <img class="rounded-circle" src="{{asset('front/image/testtimonial-1.jpg')}}" alt="">
                         <div class="media-body">
@@ -255,11 +249,11 @@
                                 <a href="#"><i class="fa fa-star-half-o"></i></a>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </section>
         <!--================ Testimonial Area  =================-->
-        
+
 
 @endsection

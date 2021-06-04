@@ -119,7 +119,10 @@ class HotelModel extends Model
     }
 
     static function featuredHotel(){
+      DB::statement("SET SQL_MODE=''");
       $query = DB::table('hotel')
+               ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
+               ->groupBy('nama')
                ->inRandomOrder()
                ->take(3)
                ->get();

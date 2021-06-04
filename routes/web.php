@@ -67,3 +67,4 @@ Route::post('/register', [LoginController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/user', [UserController::class, 'submit'])->middleware(RequireLogin::class);
 Route::post('/user/image', [UserController::class, 'image'])->middleware(RequireLogin::class);
+Route::post('/hotel', [HomeController::class, 'hotel']);
