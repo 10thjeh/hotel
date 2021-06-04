@@ -19,6 +19,10 @@ README
   fasilitasKamar($id)     : get fasilitas kamar with id $id
   city()                  : get all cities
   featuredHotel()         : return 3 random hotel
+  hotelPhotos()           : get hotel photos
+  hotelPhotos($id)        : get hotel photos with hotel id $id
+  roomPhotos()            : get room photos
+  roomPhotos($id)         : get room photos with room id $id
 
 */
 
@@ -29,11 +33,16 @@ class HotelModel extends Model
     //Kalo ada isi get hotel dgn id $id
     static function hotel($id = ''){
       if($id == ''){
-        $query = DB::table('hotel')->get();
+        $query = DB::table('hotel')
+                     ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
+                     ->join('lokasidetail', 'lokasi.id', '=', 'lokasidetail.idLokasi')
+                     ->get();
         return $query;
       }
 
       $query = DB::table('hotel')
+                   ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
+                   ->join('lokasidetail', 'lokasi.id', '=', 'lokasidetail.idLokasi')
                    ->where('id', $id)
                    ->get();
 
@@ -114,6 +123,34 @@ class HotelModel extends Model
                ->inRandomOrder()
                ->take(3)
                ->get();
+
+      return $query;
+    }
+
+    static function hotelPhotos($id = ''){
+      if($id == ''){
+        $query = DB::table('fotohotel')
+                     ->get();
+        return $query;
+      }
+
+      $query = DB::table('fotohotel')
+                   ->where('idHotel', $id)
+                   ->get();
+
+      return $query;
+    }
+
+    static function roomPhotos($id = ''){
+      if($id = ''){
+        $query = DB::table('fotokamar')
+                     ->get();
+        return $query;
+      }
+
+      $query = DB::table('fotokamar')
+                   ->where('idKamar', $id)
+                   ->get();
 
       return $query;
     }
