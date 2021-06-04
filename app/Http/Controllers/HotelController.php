@@ -9,8 +9,7 @@ use App\Models\HotelModel;
 class HotelController extends Controller
 {
     public function index(){
-        $hotels = HotelModel::featuredHotel();
-        dd($hotels);
+        $hotels = HotelModel::hotel();
         return view('listhotel',['hotels' => $hotels]);
     }
 }
