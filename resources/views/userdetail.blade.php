@@ -3,8 +3,8 @@
 
     <head>
         <!-- Required meta tags -->
-        <link rel="icon" href="image/favicon.png" type="image/png">
-        <title>Profil Saya - Crustycation</title>
+        <link rel="icon" href="{{asset('front/image/LogoAwal.png')}}" type="image/png">
+        <title>Crustycation - Profil Saya</title>
         <!-- Bootstrap CSS -->
         <!-- main css -->
         <link rel="stylesheet" href="css/style.css">
