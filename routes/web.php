@@ -50,7 +50,7 @@ Route::post('/admin/new/facility/hotel', [AdminController::class, 'submithotelfa
 Route::post('/admin/new/facility/room', [AdminController::class, 'submitroomfacility'])->middleware(AdminAuth::class);
 Route::post('/admin/new/room', [AdminController::class, 'submitnewroom'])->middleware(AdminAuth::class);
 Route::post('/admin/room/update/f', [AdminController::class, 'updateroomf'])->middleware(AdminAuth::class);
-Route::post('/admin/room/accomodation', [AdminController::class, 'updaterooma']);
+Route::post('/admin/room/accomodation', [AdminController::class, 'updaterooma'])->middleware(AdminAuth::class);
 
 
 //Home
