@@ -46,7 +46,7 @@
                     <div class="wrappers">
                     @foreach($hotels as $hotel)
                         <div class="cards">
-                            <input type="checkbox" id="cards1" class="more" aria-hidden="true">
+                            <input type="checkbox" id="{{$hotel->id}}" class="more" aria-hidden="true">
                             <div class="contents">
                                 <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
                                     <div class="inner">
@@ -58,7 +58,7 @@
                                           <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
                                           <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
                                         </div>
-                                        <label for="cards1" class="buttons" aria-hidden="true">
+                                        <label for="{{$hotel->id}}" class="buttons" aria-hidden="true">
                                             Details
                                         </label>
                                     </div>
@@ -94,7 +94,7 @@
                                             </div>
                                         </div>
                                         <div class="description">
-                                            <label for="cards1" class="buttons return" aria-hidden="true">
+                                            <label for="{{$hotel->id}}" class="buttons return" aria-hidden="true">
                                                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                             </label>
                                             <p>{{$hotel->deskripsi}}</p>
@@ -193,7 +193,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room1.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Double Deluxe Room</h4></a>
@@ -203,7 +203,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room2.jpg" alt="">
+                                <img src="{{asset('front/image/room2.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Single Deluxe Room</h4></a>
@@ -213,7 +213,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room3.jpg" alt="">
+                                <img src="{{asset('front/image/room3.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Honeymoon Suit</h4></a>
@@ -223,7 +223,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room4.jpg" alt="">
+                                <img src="{{asset('front/image/room4.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Economy Double</h4></a>
@@ -233,7 +233,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room1.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Double Deluxe Room</h4></a>
@@ -243,7 +243,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room2.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Single Deluxe Room</h4></a>
@@ -253,7 +253,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room3.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Honeymoon Suit</h4></a>
@@ -263,7 +263,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
                             <div class="hotel_img">
-                                <img src="image/room4.jpg" alt="">
+                                <img src="{{asset('front/image/room1.jpg')}}"alt="">
                                 <a href="#" class="btn theme_btn button_hover">Book Now</a>
                             </div>
                             <a href="#"><h4 class="sec_h4">Economy Double</h4></a>
