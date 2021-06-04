@@ -17,6 +17,7 @@ README
   hotelWithRating($rating): get hotel with rating $rating
   fasilitasKamar()        : get all fasilitas kamar
   fasilitasKamar($id)     : get fasilitas kamar with id $id
+  city()                  : get all cities
 
 */
 
@@ -90,6 +91,19 @@ class HotelModel extends Model
       $query = DB::table('kamar')
                    ->join('fasilitaskamar', 'kamar.id', '=', 'fasilitaskamar.idKamar')
                    ->where('kamar.id', $id)
+                   ->get();
+      return $query;
+    }
+
+    static function city($city = ''){
+      if($city == ''){
+        $query = DB::table('lokasidetail')->get();
+        return $query;
+      }
+
+      $query = DB::table('hotel')
+                   ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
+                   ->where('lokasi.idLokasi', $city)
                    ->get();
       return $query;
     }
