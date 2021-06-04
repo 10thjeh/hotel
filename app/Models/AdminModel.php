@@ -124,8 +124,7 @@ class AdminModel extends Model
                      'namaKamar' => $nama,
                      'deskripsi' => $deskripsi,
                      'harga' => $harga,
-                     'qty' => $qty,
-                     'qtyReady' => $qty
+                     'qty' => $qty
                    ]);
       DB::commit();
       if(!$query){
@@ -339,8 +338,7 @@ class AdminModel extends Model
                      'namaKamar' => $namaKamar,
                      'deskripsi' => $deskripsi,
                      'harga' => $harga,
-                     'qty' => $qty,
-                     'qtyReady' => $qty
+                     'qty' => $qty
                    ]);
       DB::commit();
       if(!$query){
