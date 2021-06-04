@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\HotelDetailController;
 use App\Http\Middleware\AdminAuth;
 use App\Http\Middleware\RequireLogin;
 
@@ -78,3 +79,7 @@ Route::GET('/hotellist',[HotelController::class,'index']);
 //Invoice
 //Get Routes
 Route::get('/invoice',[InvoiceController::class,'index']);
+
+//Detail
+//GET ROUTES
+Route::GET('/details', [HotelDetailController::class,'index']);
