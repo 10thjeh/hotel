@@ -49,15 +49,13 @@
                             <input type="checkbox" id="{{$hotel->id}}" class="more" aria-hidden="true">
                             <div class="contents">
                                 <div class="front">
-                                <img src="{{url('image/hotel/'.$photo->foto)}}" style="  position: absolute; top: 0; left: 0;width: 100%; height: 100%;backface-visibility: hidden; transform-style: preserve-3d; border-radius: 6px;">
+                                <img src="{{url('image/hotel/'.$hotel->foto)}}" style="  position: absolute; top: 0; left: 0;width: 100%; height: 100%;backface-visibility: hidden; transform-style: preserve-3d; border-radius: 6px;">
                                     <div class="inner">
                                         <h2 style="text-shadow: 4px 2px 5px black;">{{$hotel->nama}}</h2>
                                         <div class="rating" style="text-shadow: 4px 4px 7px black;">
+                                            @for($i = 0; $i < $hotel->rating; $i++)
                                           <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
-                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow;"></i>
+                                            @endfor
                                         </div>
                                         <label for="{{$hotel->id}}" class="buttons" aria-hidden="true">
                                             Details
