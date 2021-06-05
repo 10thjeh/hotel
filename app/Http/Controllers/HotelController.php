@@ -10,7 +10,11 @@ class HotelController extends Controller
 {
     public function index(){
         $hotels = HotelModel::featuredHotel();
-        
+
         return view('listhotel',['hotels' => $hotels]);
+    }
+
+    function detail($id){
+      return view('hoteldetail');
     }
 }
