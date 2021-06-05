@@ -26,4 +26,9 @@ class HomeController extends Controller
 
         dd(session());
     }
+
+    public function debug(){
+      $data = HotelModel::hotel();
+      dd($data);
+    }
 }

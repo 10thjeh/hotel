@@ -73,6 +73,9 @@ Route::post('/user/image', [UserController::class, 'image'])->middleware(Require
 
 Route::post('/hotel', [HomeController::class, 'hotel']);
 
+//Development
+Route::get('/debug', [HomeController::class, 'debug']);
+
 //Hotel
 //GET routes
 Route::GET('/hotellist',[HotelController::class,'index']);
