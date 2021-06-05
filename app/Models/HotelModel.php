@@ -124,7 +124,7 @@ class HotelModel extends Model
                ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
                ->groupBy('nama')
                ->inRandomOrder()
-               
+               ->take(4)
                ->get();
 
       return $query;

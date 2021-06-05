@@ -81,51 +81,75 @@
         <section class="accomodation_area section_gap" id="akomodasigan">
             <div class="container">
                 <div class="section_title text-center">
-                    <h2 class="title_color">Hotel Accomodation</h2>
-                    <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, </p>
+                    <h2 class="title_color">Best Hotel</h2>
+                    <p>Berikut ini adalah 3 hotel terbaik yang bekerja sama dengan Crustycation. Kami mengutamakan kenyamanan dan keamanan para tamu</p>
                 </div>
-                <div class="row mb_30">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="accomodation_item text-center">
-                            <div class="hotel_img">
-                                <img src="{{asset('front/image/room1.jpg')}}" alt="">
-                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
+                <div class="wrappers">
+                    @foreach($hotels as $hotel)
+                        <div class="cards">
+                            <input type="checkbox" id="{{$hotel->id}}" class="more" aria-hidden="true">
+                            <div class="contents">
+                                <div class="front">
+                                <img src="{{url('image/hotel/'.$hotel->foto)}}" style="  position: absolute; top: 0; left: 0;width: 100%; height: 100%;backface-visibility: hidden; transform-style: preserve-3d; border-radius: 6px;">
+                                    <div class="inner">
+                                        <h2 style="text-shadow: 4px 2px 5px black;">{{$hotel->nama}}</h2>
+                                        <div class="rating" style="text-shadow: 4px 4px 7px black;">
+                                            @for($i = 0; $i < $hotel->rating; $i++)
+                                          <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
+                                            @endfor
+                                        </div>
+                                        <label for="{{$hotel->id}}" class="buttons" aria-hidden="true">
+                                            Details
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="backs">
+                                    <div class="inner">
+                                        <div class="infos">
+                                            <span>5</span>
+                                            <div class="icon">
+                                              <i class="fa fa-users" aria-hidden="true"></i>
+                                                <span>people</span>
+                                            </div>
+                                        </div>
+                                        <div class="infos">
+                                            <span>4</span>
+                                            <div class="icon">
+                                              <i class="fas fa-door-open"></i>
+                                                <span>rooms</span>
+                                            </div>
+                                        </div>
+                                        <div class="infos">
+                                            <span>3</span>
+                                            <div class="icon">
+                                              <i class="fa fa-bed"></i>
+                                                <span>beds</span>
+                                            </div>
+                                        </div>
+                                        <div class="infos">
+                                            <span>1</span>
+                                            <div class="icon">
+                                              <i class="fa fa-bath" aria-hidden="true"></i>
+                                                <span>bath</span>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <label for="{{$hotel->id}}" class="buttons return" aria-hidden="true">
+                                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                            </label>
+                                            <p>{{$hotel->deskripsi}}</p>
+                                        </div>
+                                        <div class="location">Warsaw, Poland</div>
+                                        <div class="price">38€ / day</div>
+                                        <label for="" class="buttons return" aria-hidden="true">
+                                            <a href="{{url('/hotellist')}}">BOOK NOW</a>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="#"><h4 class="sec_h4">Double Deluxe Room</h4></a>
-                            <h5>$250<small>/night</small></h5>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="accomodation_item text-center">
-                            <div class="hotel_img">
-                                <img src="{{asset('front/image/room2.jpg')}}" alt="">
-                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
-                            </div>
-                            <a href="#"><h4 class="sec_h4">Single Deluxe Room</h4></a>
-                            <h5>$200<small>/night</small></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="accomodation_item text-center">
-                            <div class="hotel_img">
-                                <img src="{{asset('front/image/room3.jpg')}}" alt="">
-                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
-                            </div>
-                            <a href="#"><h4 class="sec_h4">Honeymoon Suit</h4></a>
-                            <h5>$750<small>/night</small></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="accomodation_item text-center">
-                            <div class="hotel_img">
-                            <img src="{{asset('front/image/room4.jpg')}}" alt="">
-                                <a href="#" class="btn theme_btn button_hover">Book Now</a>
-                            </div>
-                            <a href="#"><h4 class="sec_h4">Economy Double</h4></a>
-                            <h5>$200<small>/night</small></h5>
-                        </div>
-                    </div>
-                </div>
+                        @endforeach
+                      </div>
             </div>
         </section>
         <!--================ Accomodation Area  =================-->
@@ -254,6 +278,239 @@
             </div>
         </section>
         <!--================ Testimonial Area  =================-->
+        <style>
+
+.bodi {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+        .wrappers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.cards {
+  width: 420px;
+  height: 340px;
+  margin: 1em;
+  perspective: 1500px;
+}
+.cards .contents {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+}
+
+.more {
+  display: none;
+}
+.more:checked ~ .contents {
+  transform: rotateY(180deg);
+}
+
+.front,
+.backs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border-radius: 6px;
+}
+.front .inner,
+.backs .inner {
+  height: 100%;
+  display: grid;
+  padding: 1.5em;
+  transform: translateZ(80px) scale(0.94);
+}
+
+.front {
+  background-color: #fff;
+  background-size: cover;
+  background-position: center center;
+}
+.front:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 6px;
+  backface-visibility: hidden;
+  /* background: linear-gradient(40deg, rgba(67, 138, 243, 0.7), rgba(255, 242, 166, 0.7)); */
+}
+.front .inner {
+  grid-template-rows: 5fr 1fr 1fr 2fr 1fr;
+  justify-items: center;
+}
+.front h2 {
+  grid-row: 2;
+  margin-bottom: 0.3em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  font-weight: 500;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+.front .rating {
+  grid-row: 3;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.front .rating i {
+  margin: 0 1px;
+}
+
+.backs {
+  transform: rotateY(180deg);
+  background-color: #fff;
+  border: 2px solid #f0f0f0;
+}
+.backs .inner {
+  grid-template-rows: 1fr 2fr 1fr 2fr 14fr 1fr 1fr;
+  grid-template-columns: repeat(4, auto);
+  grid-column-gap: 0.8em;
+  justify-items: center;
+}
+.backs .infos {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #355cc9;
+  grid-row: 3;
+}
+.backs .infos:not(:first-of-type):before {
+  content: "";
+  position: absolute;
+  left: -0.9em;
+  height: 18px;
+  width: 1px;
+  backsground-color: #ccc;
+}
+.backs .infos span {
+  font-size: 2em;
+  font-weight: 700;
+}
+.backs .infos i {
+  font-size: 1.2em;
+}
+.backs .infos i:before {
+  background: linear-gradient(40deg, #355cc9, #438af3);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.backs .infos .icon {
+  margin-left: 0.3em;
+}
+.backs .infos .icon span {
+  display: block;
+  margin-top: -0.25em;
+  font-size: 0.8em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.backs .description {
+  grid-row: 5;
+  grid-column: 1/-1;
+  font-size: 0.86em;
+  border-radius: 5px;
+  font-weight: 600;
+  line-height: 1.4em;
+  overflow: auto;
+  color: #355cc9;
+  padding-right: 10px;
+}
+.backs .location,
+.backs .price {
+  font-weight: 600;
+  color: #355cc9;
+  grid-row: 1;
+  font-size: 0.86em;
+}
+.backs .location {
+  grid-column: 1/3;
+  justify-self: left;
+}
+.backs .price {
+  grid-column: 3/-1;
+  justify-self: right;
+}
+.backs .buttons {
+  grid-column: 1/-1;
+  justify-self: center;
+}
+
+.buttons {
+  grid-row: -1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  padding: 0 1.5em;
+  height: 3em;
+  line-height: 2.9em;
+  min-width: 3em;
+  background-color: transparent;
+  border: solid 2px #fff;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  left: 50%;
+  backface-visibility: hidden;
+  transition: 0.3s ease-in-out;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.buttons:hover {
+  background-color: #fff;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
+  color: #355cc9;
+}
+.buttons.return {
+  line-height: 3em;
+  color: #355cc9;
+  border-color: #355cc9;
+  text-shadow: none;
+}
+.buttons.return:hover {
+  background-color: #355cc9;
+  color: #fff;
+  box-shadow: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #859ddf;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #355cc9;
+}
+    </style>
+
 
 
 @endsection
