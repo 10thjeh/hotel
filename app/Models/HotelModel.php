@@ -45,7 +45,7 @@ class HotelModel extends Model
 
       $query = DB::table('hotel')
                    ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
-                   ->join('lokasidetail', 'lokasi.id', '=', 'lokasidetail.idLokasi')
+                   ->join('lokasidetail', 'lokasi.idLokasi', '=', 'lokasidetail.idLokasi')
                    ->where('id', $id)
                    ->get();
 
@@ -63,8 +63,11 @@ class HotelModel extends Model
 
     //Kamar dari hotel dengan id $id
     static function kamarDariHotel($id){
+      DB::statement("SET SQL_MODE=''");
       $query = DB::table('kamar')
                    ->where('idHotel', $id)
+                   ->join('fotokamar', 'kamar.id', '=', 'fotokamar.idKamar')
+                   ->groupBy('namaKamar')
                    ->get();
 
       return $query;
@@ -79,8 +82,8 @@ class HotelModel extends Model
         return $query;
       }
 
-      $query = DB::table('hotel')
-                   ->join('fasilitashotel', 'hotel.id', '=', 'fasilitashotel.idHotel')
+      $query = DB::table('fasilitashoteldetail')
+                   ->join('fasilitashotel', 'fasilitashoteldetail.id', '=', 'fasilitashotel.idFasilitas')
                    ->where('fasilitashotel.idHotel', $id)
                    ->get();
       return $query;

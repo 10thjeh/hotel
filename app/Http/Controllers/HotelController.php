@@ -15,6 +15,12 @@ class HotelController extends Controller
     }
 
     function detail($id){
-      return view('hoteldetail');
+        $hotels = HotelModel::hotel($id);
+        $photos = HotelModel::hotelPhotos($id);
+        $kamars = HotelModel::kamarDariHotel($id);
+        $fasilitass = HotelModel::fasilitasHotel($id);
+        $roomphotos = HotelModel::roomPhotos($id);
+        //dd($kamars);
+        return view('hoteldetail',['hotels' => $hotels, 'photos' => $photos, 'kamars' => $kamars, 'fasilitass' => $fasilitass, 'roomphotos' => $roomphotos]);
     }
 }
