@@ -78,11 +78,12 @@ Route::get('/debug', [HomeController::class, 'debug']);
 
 //Hotel
 //GET routes
-Route::GET('/hotellist',[HotelController::class,'index']);
+Route::get('/hotellist',[HotelController::class,'index']);
+Route::get('/hoteldetail/{id}', [HotelController::class, 'detail']);
 //Invoice
 //Get Routes
 Route::get('/invoice',[InvoiceController::class,'index']);
 
 //Detail
 //GET ROUTES
-Route::GET('/details', [HotelDetailController::class,'index']);
+Route::get('/details', [HotelDetailController::class,'index']);
