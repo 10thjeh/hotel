@@ -32,10 +32,13 @@ class HotelModel extends Model
     //Get list hotel kalo param kosong
     //Kalo ada isi get hotel dgn id $id
     static function hotel($id = ''){
+      DB::statement("SET SQL_MODE=''");
       if($id == ''){
         $query = DB::table('hotel')
                      ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
                      ->join('lokasidetail', 'lokasi.idLokasi', '=', 'lokasidetail.idLokasi')
+                     ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
+                     ->groupBy('nama')
                      ->get();
         return $query;
       }
@@ -122,9 +125,10 @@ class HotelModel extends Model
       DB::statement("SET SQL_MODE=''");
       $query = DB::table('hotel')
                ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
+               ->where('hotel.rating', '>', 3)
                ->groupBy('nama')
                ->inRandomOrder()
-               
+               ->take(3)
                ->get();
 
       return $query;
