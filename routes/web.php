@@ -58,7 +58,7 @@ Route::post('/admin/room/accomodation', [AdminController::class, 'updaterooma'])
 
 //Home
 //GET routes
-Route::get('/',[HomeController::class,'index']);
+Route::get('/', function(){ return redirect('/home');});
 Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::get('/register',[LoginController::class,'registerview']);
 Route::get('/login',[LoginController::class,'loginview'])->name('login');

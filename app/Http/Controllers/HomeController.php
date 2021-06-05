@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index(){
         $cities = HotelModel::city();
-        return view('home', ['cities' => $cities]);
+        $hotels = HotelModel::featuredHotel();
+        return view('home', ['cities' => $cities, 'hotels' => $hotels]);
     }
 
     public function hotel(Request $request){
