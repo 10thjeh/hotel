@@ -341,12 +341,14 @@
 </head>
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+@foreach($hotels as $hotel)
+
         <!--================Breadcrumb Area =================-->
         <section class="breadcrumb_area">
             <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="page-cover text-center">
-                    <h2 class="page-cover-tittle">Hotel Apa</h2>
+                    <h2 class="page-cover-tittle">{{$hotel->nama}}</h2>
                 </div>
             </div>
         </section>
@@ -359,23 +361,18 @@
                 <div class="product-image">
                     <div id="myCarousel-2" class="carousel slide">
                         <ol class="carousel-indicators">
+                        
                             <li data-target="#myCarousel-2" data-slide-to="0" class=""></li>
                             <li data-target="#myCarousel-2" data-slide-to="1" class="active"></li>
                             <li data-target="#myCarousel-2" data-slide-to="2" class=""></li>
                         </ol>
                         <div class="carousel-inner">
-                            <!-- Slide 1 -->
-                            <div class="item active">
-                                <img src="ps4gan.png" class="img-responsive" alt="" />
-                            </div>
-                            <!-- Slide 2 -->
-                            <div class="item">
-                                <img src="https://via.placeholder.com/700x400/87CEFA/000000" class="img-responsive" alt="" />
-                            </div>
-                            <!-- Slide 3 -->
-                            <div class="item">
-                                <img src="https://via.placeholder.com/700x400/B0C4DE/000000" class="img-responsive" alt="" />
-                            </div>
+                            @foreach($kamars as $kamar)
+                                <!-- Slide 1 -->
+                                <div class="item @if($loop->first) active @endif">
+                                    <img src="{{url('image/room/'.$kamar->foto)}}" class="img-responsive" alt="" />
+                                </div>
+                            @endforeach
                         </div>
                         <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
                         <a class="right carousel-control" href="#myCarousel-2" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
@@ -385,62 +382,42 @@
 
             <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                 <h2 class="name">
-                    Nama Kamar
-                    <small>Room By <a href="javascript:void(0);">Hotel apa</a></small>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-primary"></i>
-                    <i class="fa fa-star fa-2x text-muted"></i>
+                <strong>{{$hotel->nama}}</strong>
+                    <small>Room By <a href="javascript:void(0);">{{$hotel->nama}}</a></small>
+                    @for($i = 0; $i < $hotel->rating; $i++)
+                        <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
+                    @endfor
                 </h2>
                 <hr />
                 <h3 class="price-container">
-                    $129.54
-                    <small>*includes tax</small>
+                    <p>FACILITY</p>
+                    <h4>
+                    @foreach($fasilitass as $fasilitas)
+                        {{$fasilitas->nama}}, 
+                    @endforeach
+                    </h4>
+                    
                 </h3>
-                <div class="certified">
-                    <ul>
-                        <li>
-                            <a href="javascript:void(0);">Maximum Guest<span>2 Orang </span></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">Certified<span>Kualitas Terjamin</span></a>
-                        </li>
-                    </ul>
-                </div>
                 <hr />
                 <div class="description description-tabs">
                     <ul id="myTab" class="nav nav-pills">
-                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Deskripsi Kamar </a></li>
-                        <li class=""><a href="#specifications" data-toggle="tab">Spesifikasi Kamar</a></li>
-                        <!-- <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li> -->
+                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Deskripsi Hotel </a></li>
                     </ul>
+                    
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade active in" id="more-information">
                             <br />
-                            <strong>Description Title</strong>
+                            <strong>{{$hotel->nama}}</strong>
                             <p>
-                                Integer egestas, orci id condimentum eleifend, nibh nisi pulvinar eros, vitae ornare massa neque ut orci. Nam aliquet lectus sed odio eleifend, at iaculis dolor egestas. Nunc elementum pellentesque augue
-                                sodales porta. Etiam aliquet rutrum turpis, feugiat sodales ipsum consectetur nec.
+                                {{$hotel->deskripsi}}
                             </p>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <a href="javascript:void(0);" class="btn btn-success btn-lg">See Details</a>
+                            </div>
+                            <br>
                         </div>
-                        <div class="tab-pane fade" id="specifications">
-                            <br />
-                            <dl class="">
-                                <dt>Kasur</dt>
-                                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                                <dd>Eget lacinia odio sem nec elit.</dd>
-                                <br />
-
-                                <dt>Kamar Mandi</dt>
-                                <dd>A description list is perfect for defining terms.</dd>
-                                <br />
-
-                                <dt>Tamu Maksimal</dt>
-                                <dd>Vestibulum id ligula porta felis euismod semper</dd>
-                            </dl>
-                        </div>
+                        
+                        
                         <div class="tab-pane fade" id="reviews">
                             <br />
                             <form method="post" class="well padding-bottom-10" onsubmit="return false;">
@@ -515,9 +492,7 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-6">
-                        <a href="javascript:void(0);" class="btn btn-success btn-lg">BOOK NOW ($129.54)</a>
-                    </div>
+                    
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <!-- <div class="btn-group pull-right"> -->
                             <!-- <button class="btn btn-white btn-default"><i class="fa fa-star"></i> Add to wishlist</button> -->
@@ -531,6 +506,7 @@
     <!-- end product -->
 </div>
 
+@endforeach
 
 
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
