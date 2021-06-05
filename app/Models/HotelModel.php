@@ -82,8 +82,8 @@ class HotelModel extends Model
         return $query;
       }
 
-      $query = DB::table('hotel')
-                   ->join('fasilitashotel', 'hotel.id', '=', 'fasilitashotel.idHotel')
+      $query = DB::table('fasilitashoteldetail')
+                   ->join('fasilitashotel', 'fasilitashoteldetail.id', '=', 'fasilitashotel.idFasilitas')
                    ->where('fasilitashotel.idHotel', $id)
                    ->get();
       return $query;
