@@ -8,17 +8,17 @@
         <link rel="icon" href="{{asset('front/image/LogoAwal.png')}}" type="image/png">
         <title>Crustycation - Hotel Kami</title>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <!-- <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css"> -->
         <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
+        <!-- <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css"> -->
     </head>
-    <body>  
+    <body>
         <!--================Breadcrumb Area =================-->
         <section class="breadcrumb_area">
             <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
@@ -33,7 +33,7 @@
             </div>
         </section>
         <!--================Breadcrumb Area =================-->
-        
+
         <!--================ Accomodation Area  =================-->
         <section class="accomodation_area section_gap">
             <div class="batas">
@@ -109,9 +109,9 @@
                         </div>
                         @endforeach
                       </div>
-                      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-                      <script src="https://use.fontawesome.com/9ca63657ea.js"></script>
-           
+                      <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+                      <!-- <script src="https://use.fontawesome.com/9ca63657ea.js"></script> -->
+
                     </div>
         </section>
         <!--================ Accomodation Area  =================-->
@@ -273,11 +273,11 @@
             </div>
         </section>
         <!--================ Accomodation Area  =================-->
-        
-        
+
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.2.1.min.js"></script>
+        <!-- <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
@@ -287,7 +287,7 @@
         <script src="js/mail-script.js"></script>
         <script src="js/stellar.js"></script>
         <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="js/custom.js"></script> -->
     </body>
     <style>
 
