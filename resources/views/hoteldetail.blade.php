@@ -367,10 +367,10 @@
                             <li data-target="#myCarousel-2" data-slide-to="2" class=""></li>
                         </ol>
                         <div class="carousel-inner">
-                            @foreach($kamars as $kamar)
+                            @foreach($photos as $photo)
                                 <!-- Slide 1 -->
                                 <div class="item @if($loop->first) active @endif">
-                                    <img src="{{url('image/room/'.$kamar->foto)}}" class="img-responsive" alt="" />
+                                    <img src="{{url('image/hotel/'.$photo->foto)}}" class="img-responsive" alt="" />
                                 </div>
                             @endforeach
                         </div>
@@ -404,17 +404,24 @@
                         <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Deskripsi Hotel </a></li>
                     </ul>
                     
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade active in" id="more-information">
+                    <div id="myTabContent" class="tab-content ">
+                        <div class="row ab-pane fade active in" id="more-information">
                             <br />
-                            <strong>{{$hotel->nama}}</strong>
-                            <p>
-                                {{$hotel->deskripsi}}
-                            </p>
+                            @foreach($kamars as $kamar)
+                            <h5><strong>{{$kamar->namaKamar}}</strong></h5>
+                            <div class="item col-3 @if($loop->first) active @endif">
+                                    <img src="{{url('image/room/'.$kamar->foto)}}" class="img-responsive"  alt="" />
+                            </div>
+                            <div class="col-9">
+                                <p>
+                                    {{$kamar->deskripsi}}
+                                </p>
+                            </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <a href="javascript:void(0);" class="btn btn-success btn-lg">See Details</a>
                             </div>
                             <br>
+                            @endforeach
                         </div>
                         
                         
