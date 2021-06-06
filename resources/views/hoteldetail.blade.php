@@ -383,7 +383,7 @@
             <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                 <h2 class="name">
                 <strong>{{$hotel->nama}}</strong>
-                    <small>Room By <a href="javascript:void(0);">{{$hotel->nama}}</a></small>
+                    <small>Hotel By <a href="javascript:void(0);">{{$hotel->nama}}</a></small>
                     @for($i = 0; $i < $hotel->rating; $i++)
                         <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
                     @endfor
@@ -420,6 +420,7 @@
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <a href="{{url('/room/'.$kamar->id)}}" class="btn btn-success btn-lg">See Details</a>
                             </div>
+                            <br>
                             <br>
                             @endforeach
                         </div>
