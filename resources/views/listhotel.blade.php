@@ -33,13 +33,57 @@
             </div>
         </section>
         <!--================Breadcrumb Area =================-->
-
+        <!--================Booking Tabel Area =================-->
+        <div class="container">
+            <div class="hotel_booking_table">
+                <div class="col-md-3">
+                    <h2>CARI<br>RATING<br> HARGA</h2>
+                </div>
+                <div class="col-md-9">
+                    <div class="boking_table">
+                        <div class="row">
+                             <div class="col-md-4">
+                                <div class="book_tabel_item">
+                                    <div class="form-group">
+                                        <div class='input-group date'>
+                                            <input type='text' class="form-control" placeholder="Harga"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="input-group">
+                                        <select class="wide">
+                                            <option data-display="Rating">Rating</option>
+                                            <option value="1">Child</option>
+                                            <option value="2">Baby</option>
+                                            <option value="3">Child</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-4">
+                                <div class="book_tabel_item">
+                                    <div class="input-group">
+                                    <a class="book_now_btn button_hover" href="#">CARI HARGA</a>
+                                    </div>
+                                    <div class="input-group">
+                                    <a class="book_now_btn button_hover" href="#">CARI RATING</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <!--================Booking Tabel Area  =================-->
         <!--================ Accomodation Area  =================-->
         <section class="accomodation_area section_gap">
             <div class="batas">
               <div class="container">
                 <div class="section_title text-center">
-                    <h2 class="title_color" >Best Hotel</h2>
+                    <h2 class="title_color" >Out Hotel</h2>
                     <p>Berikut ini adalah 3 hotel terbaik yang bekerja sama dengan Crustycation. Kami mengutamakan kenyamanan dan keamanan para tamu</p>
                 </div>
               </div>
