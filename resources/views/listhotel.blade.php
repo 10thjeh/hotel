@@ -46,7 +46,7 @@
                                 <div class="book_tabel_item">
                                     <div class="form-group">
                                         <div class='input-group date'>
-                                            <input type='text' class="form-control" placeholder="Harga"/>
+                                            <input type='number' class="form-control" placeholder="Harga"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
