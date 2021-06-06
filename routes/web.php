@@ -73,15 +73,17 @@ Route::post('/user', [UserController::class, 'submit'])->middleware(RequireLogin
 Route::post('/user/image', [UserController::class, 'image'])->middleware(RequireLogin::class);
 
 Route::post('/hotel', [HomeController::class, 'hotel']);
-
+Route::post('/book', [HotelController::class, 'confirmbook'])->middleware(RequireLogin::class);
 //Development
 Route::get('/debug', [HomeController::class, 'debug']);
 
 //Hotel
 //GET routes
-Route::get('/hotellist',[HotelController::class,'index']);
+Route::get('/hotel',[HotelController::class,'index']);
 Route::get('/hoteldetail/{id}', [HotelController::class, 'detail']);
 Route::get('/room/{id}', [HotelController::class,'room']);
+Route::get('/book/{id}', [HotelController::class, 'book'])->middleware(RequireLogin::class);
+
 //Invoice
 //Get Routes
 Route::get('/invoice',[InvoiceController::class,'index']);
