@@ -36,7 +36,7 @@ class HomeController extends Controller
     }
 
     public function debug(){
-      $data = HotelModel::hotel();
+      $data = HotelModel::getHotelWithPrice(1500000);
       dd($data);
     }
 }

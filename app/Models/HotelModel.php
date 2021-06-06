@@ -24,6 +24,9 @@ README
   hotelPhotos($id)        : get hotel photos with hotel id $id
   roomPhotos()            : get room photos
   roomPhotos($id)         : get room photos with room id $id
+  getOrders()             : get order list
+  getHotelWithRating($rating) : get hotel with rating $rating
+  getHotelWithPrice($price) : get hotel with price less than $price
 
 */
 
@@ -231,6 +234,39 @@ class HotelModel extends Model
 
     return redirect()->back()->with('status', 'Update successful!');
 
+    }
+
+    static function getOrders(){
+      $email = session('email');
+      $query = DB::table('transaction')
+                 ->where('email', $email)
+                 ->get();
+      return $query;
+    }
+
+
+    static function getHotelWithRating($rating){
+      $query = DB::table('hotel')
+                 ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
+                 ->join('lokasidetail', 'lokasi.idLokasi', '=', 'lokasidetail.idLokasi')
+                 ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
+                 ->where('rating', $rating)
+                 ->get();
+      return $query;
+    }
+
+
+    static function getHotelWithPrice($price){
+      DB::statement("SET SQL_MODE=''");
+      $query = DB::table('hotel')
+                 ->join('kamar', 'hotel.id', '=', 'kamar.idHotel')
+                 ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
+                 ->join('lokasidetail', 'lokasi.idLokasi', '=', 'lokasidetail.idLokasi')
+                 ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
+                 ->where('harga', '<=', $price)
+                 ->groupBy('nama')
+                 ->get();
+      return $query;
     }
 
 }
