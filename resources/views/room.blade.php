@@ -5,10 +5,7 @@
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
     <title>Crustycation - Hotel</title>
-    <link rel="icon" href="{{asset('front/image/LogoAwal.png')}}" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     	body{
@@ -340,15 +337,14 @@
     </style>
 </head>
 <body>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-@foreach($hotels as $hotel)
-
-        <!--================Breadcrumb Area =================-->
-        <section class="breadcrumb_area">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+@foreach($kamars as $kamar)
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area">
             <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="page-cover text-center">
-                    <h2 class="page-cover-tittle">{{$hotel->nama}}</h2>
+                    <h2 class="page-cover-tittle">{{$kamar->namaKamar}}</h2>
                 </div>
             </div>
         </section>
@@ -361,18 +357,15 @@
                 <div class="product-image">
                     <div id="myCarousel-2" class="carousel slide">
                         <ol class="carousel-indicators">
-                        
                             <li data-target="#myCarousel-2" data-slide-to="0" class=""></li>
                             <li data-target="#myCarousel-2" data-slide-to="1" class="active"></li>
                             <li data-target="#myCarousel-2" data-slide-to="2" class=""></li>
                         </ol>
                         <div class="carousel-inner">
-                            @foreach($photos as $photo)
-                                <!-- Slide 1 -->
-                                <div class="item @if($loop->first) active @endif">
-                                    <img src="{{url('image/hotel/'.$photo->foto)}}" class="img-responsive" alt="" />
-                                </div>
-                            @endforeach
+                            <!-- Slide 1 -->
+                            <div class="item active">
+                                <img src="ps4gan.png" class="img-responsive" alt="" />
+                            </div>
                         </div>
                         <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
                         <a class="right carousel-control" href="#myCarousel-2" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
@@ -382,49 +375,54 @@
 
             <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                 <h2 class="name">
-                <strong>{{$hotel->nama}}</strong>
-                    <small>Room By <a href="javascript:void(0);">{{$hotel->nama}}</a></small>
-                    @for($i = 0; $i < $hotel->rating; $i++)
-                        <i class="fa fa-star" aria-hidden="true" style="color:yellow; "></i>
-                    @endfor
+                    {{$kamar->namaKamar}}
+                    <small>Room By <a href="javascript:void(0);">Ini belom</a>
                 </h2>
                 <hr />
                 <h3 class="price-container">
-                    <p>FACILITY</p>
-                    <h4>
-                    @foreach($fasilitass as $fasilitas)
-                        {{$fasilitas->nama}}, 
-                    @endforeach
-                    </h4>
-                    
+                    Rp. {{$kamar->harga}}
+                    <small>*includes tax</small>
                 </h3>
+                <div class="certified">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);">Maximum Guest<span>{{$kamar->orang}} Orang </span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Certified<span>Kualitas Terjamin</span></a>
+                        </li>
+                    </ul>
+                </div>
                 <hr />
                 <div class="description description-tabs">
                     <ul id="myTab" class="nav nav-pills">
-                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Deskripsi Hotel </a></li>
+                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Deskripsi Kamar </a></li>
+                        <li class=""><a href="#specifications" data-toggle="tab">Spesifikasi Kamar</a></li>
+                        <!-- <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li> -->
                     </ul>
-                    
-                    <div id="myTabContent" class="tab-content ">
-                        <div class="row ab-pane fade active in" id="more-information">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="more-information">
                             <br />
-                            @foreach($kamars as $kamar)
-                            <h5><strong>{{$kamar->namaKamar}}</strong></h5>
-                            <div class="item col-3 @if($loop->first) active @endif">
-                                    <img src="{{url('image/room/'.$kamar->foto)}}" class="img-responsive"  alt="" />
-                            </div>
-                            <div class="col-9">
-                                <p>
-                                    {{$kamar->deskripsi}}
-                                </p>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <a href="{{url('/room/'.$kamar->id)}}" class="btn btn-success btn-lg">See Details</a>
-                            </div>
-                            <br>
-                            @endforeach
+                            <strong>Description Title</strong>
+                            <p>
+                                {{$kamar->deskripsi}}
+                            </p>
                         </div>
-                        
-                        
+                        <div class="tab-pane fade" id="specifications">
+                            <br />
+                            <dl class="">
+                                <dt>Kasur  <i class="fa fa-bed" aria-hidden="true" style="color:black; "></i></dt>
+                                <dd>Terdapat <strong>{{$kamar->kasur}}</strong> kasur </dd>
+                                <br />
+
+                                <dt>Kamar Mandi  <i class="fa fa-bath" aria-hidden="true" style="color:black; "></i></dt>
+                                <dd>Terdapat <strong>{{$kamar->kamarMandi}}</strong> kamar mandi </dd>
+                                <br />
+
+                                <dt>Tamu Maksimal  <i class="fa fa-male" aria-hidden="true" style="color:black; "></i></dt>
+                                <dd>Hanya bisa <strong>{{$kamar->orang}}</strong> dalam satu kamar</dd>
+                            </dl>
+                        </div>
                         <div class="tab-pane fade" id="reviews">
                             <br />
                             <form method="post" class="well padding-bottom-10" onsubmit="return false;">
@@ -499,7 +497,9 @@
                 </div>
                 <hr />
                 <div class="row">
-                    
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <a href="javascript:void(0);" class="btn btn-success btn-lg">BOOK NOW ($129.54)</a>
+                    </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <!-- <div class="btn-group pull-right"> -->
                             <!-- <button class="btn btn-white btn-default"><i class="fa fa-star"></i> Add to wishlist</button> -->
@@ -510,10 +510,10 @@
             </div>
         </div>
     </div>
+    @endforeach
     <!-- end product -->
 </div>
 
-@endforeach
 
 
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\HotelDetailController;
 use App\Http\Middleware\AdminAuth;
@@ -80,10 +81,14 @@ Route::get('/debug', [HomeController::class, 'debug']);
 //GET routes
 Route::get('/hotellist',[HotelController::class,'index']);
 Route::get('/hoteldetail/{id}', [HotelController::class, 'detail']);
+Route::get('/room/{id}', [HotelController::class,'room']);
 //Invoice
 //Get Routes
 Route::get('/invoice',[InvoiceController::class,'index']);
 
 //Detail
 //GET ROUTES
-Route::get('/details', [HotelDetailController::class,'index']);
+Route::get('/details', [HotelDetailController::class,'index']);// Ini di apus juga gapapa
+
+//Room
+// Route::get('/room/{id}',[RoomController::class, 'index']);
