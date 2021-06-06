@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 README
   hotel()                 : get all hotels
   hotel($id)              : get hotel with id $id
+  hotelOnKota($id)        : get hotel in kota id $id
   kamar($id)              : get kamar with id $id
   kamarDariHotel($id)     : get kamar hotel with id $id
   fasilitasHotel()        : get all fasilitas hotel
@@ -52,6 +53,19 @@ class HotelModel extends Model
       return $query;
     }
 
+    static function hotelOnKota($id){
+      DB::statement("SET SQL_MODE=''");
+      $query = DB::table('hotel')
+                   ->join('lokasi', 'hotel.id', '=', 'lokasi.idHotel')
+                   ->join('lokasidetail', 'lokasi.idLokasi', '=', 'lokasidetail.idLokasi')
+                   ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
+                   ->where('lokasi.idLokasi', $id)
+                   ->groupBy('nama')
+                   ->get();
+
+      return $query;
+    }
+
     //Kamar dengan id $id
     static function kamar($id){
       $query = DB::table('kamar')
@@ -59,6 +73,16 @@ class HotelModel extends Model
                    ->get();
 
       return $query;
+    }
+
+    static function getRoomQty($id){
+      $query = DB::table('kamar')
+                 ->where('id', $id)
+                 ->get();
+      foreach ($query as $q) {
+        $qty = $q->qty;
+      }
+      return $qty;
     }
 
     //Kamar dari hotel dengan id $id
@@ -104,9 +128,9 @@ class HotelModel extends Model
         return $query;
       }
 
-      $query = DB::table('kamar')
-                   ->join('fasilitaskamar', 'kamar.id', '=', 'fasilitaskamar.idKamar')
-                   ->where('kamar.id', $id)
+      $query = DB::table('fasilitaskamar')
+                   ->join('fasilitaskamardetail', 'fasilitaskamar.idFasilitas', '=', 'fasilitaskamardetail.id')
+                   ->where('fasilitaskamar.idKamar', $id)
                    ->get();
       return $query;
     }
@@ -152,7 +176,7 @@ class HotelModel extends Model
     }
 
     static function roomPhotos($id = ''){
-      if($id = ''){
+      if($id == ''){
         $query = DB::table('fotokamar')
                      ->get();
         return $query;
@@ -163,6 +187,50 @@ class HotelModel extends Model
                    ->get();
 
       return $query;
+    }
+
+    static function getHotelName($id){
+      $query = DB::table('kamar')
+                 ->join('hotel', 'kamar.idHotel', '=', 'hotel.id')
+                 ->where('kamar.id', $id)
+                 ->get();
+
+      return $query;
+    }
+
+    static function book($idKamar, $idHotel, $nama, $nomorTelepon, $email, $kamar, $startDate, $endDate, $hargaKamar){
+      //get the date diffs
+      $date1 = date_create($startDate);
+      $date2 = date_create($endDate);
+      $diff = date_diff($date1, $date2);
+      $lama = $diff->format("%a");
+      //Harga = harga kamar * qty * lama
+      $harga = $hargaKamar * $kamar * $lama;
+
+      DB::beginTransaction();
+      $query = DB::table('transaction')
+                   ->insert([
+                     'id' => (int)'',
+                     'email' => $email,
+                     'namaPemesan' => $nama,
+                     'nomorTelepon' => $nomorTelepon,
+                     'idHotel' => $idHotel,
+                     'idKamar' => $idKamar,
+                     'qty' => $kamar,
+                     'startDate' => $startDate,
+                     'endDate' => $endDate,
+                     'lama' => $lama,
+                     'harga' => $harga,
+                   ]);
+
+    DB::commit();
+    if(!$query){
+      DB::rollback();
+      return redirect()->back()->withErrors(['errors' => 'Error : Unknown error']);
+      }
+
+    return redirect()->back()->with('status', 'Update successful!');
+
     }
 
 }

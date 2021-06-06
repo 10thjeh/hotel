@@ -263,7 +263,7 @@
 }
 
 .profile-message ul {
-  list-style: none ;  
+  list-style: none ;
 }
 
 .product-deatil .certified {
@@ -363,9 +363,11 @@
                         </ol>
                         <div class="carousel-inner">
                             <!-- Slide 1 -->
-                            <div class="item active">
-                                <img src="ps4gan.png" class="img-responsive" alt="" />
+                            @foreach($photos as $photo)
+                            <div class="item @if($loop->first) active @endif">
+                                <img src="{{url('image/room/'.$photo->foto)}}" class="img-responsive" alt="" />
                             </div>
+                            @endforeach
                         </div>
                         <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
                         <a class="right carousel-control" href="#myCarousel-2" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
@@ -376,7 +378,9 @@
             <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                 <h2 class="name">
                     {{$kamar->namaKamar}}
-                    <small>Room By <a href="javascript:void(0);">Ini belom</a>
+                    @foreach($hotel as $h)
+                    <small>Room By <a href="{{url('/hoteldetail/'.$h->id)}}">{{$h->nama}}</a>
+                    @endforeach
                 </h2>
                 <hr />
                 <h3 class="price-container">
@@ -389,7 +393,10 @@
                             <a href="javascript:void(0);">Maximum Guest<span>{{$kamar->orang}} Orang </span></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0);">Certified<span>Kualitas Terjamin</span></a>
+                            <a href="javascript:void(0);">Bed(s)<span>{{$kamar->kasur}}</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Bathroom(s)<span>{{$kamar->kamarMandi}}</span></a>
                         </li>
                     </ul>
                 </div>
@@ -397,7 +404,7 @@
                 <div class="description description-tabs">
                     <ul id="myTab" class="nav nav-pills">
                         <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Deskripsi Kamar </a></li>
-                        <li class=""><a href="#specifications" data-toggle="tab">Spesifikasi Kamar</a></li>
+                        <li class=""><a href="#specifications" data-toggle="tab">Fasilitas Kamar</a></li>
                         <!-- <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li> -->
                     </ul>
                     <div id="myTabContent" class="tab-content">
@@ -411,7 +418,9 @@
                         <div class="tab-pane fade" id="specifications">
                             <br />
                             <dl class="">
-                                <dt>Kasur  <i class="fa fa-bed" aria-hidden="true" style="color:black; "></i></dt>
+                              <dt>Fasilitas kamar : </dt>
+                              <dd>@foreach($facilities as $facility) @if(!$loop->first),@endif {{$facility->nama}} @endforeach</dd>
+                                <!-- <dt>Kasur  <i class="fa fa-bed" aria-hidden="true" style="color:black; "></i></dt>
                                 <dd>Terdapat <strong>{{$kamar->kasur}}</strong> kasur </dd>
                                 <br />
 
@@ -420,7 +429,7 @@
                                 <br />
 
                                 <dt>Tamu Maksimal  <i class="fa fa-male" aria-hidden="true" style="color:black; "></i></dt>
-                                <dd>Hanya bisa <strong>{{$kamar->orang}}</strong> dalam satu kamar</dd>
+                                <dd>Hanya bisa <strong>{{$kamar->orang}}</strong> dalam satu kamar</dd> -->
                             </dl>
                         </div>
                         <div class="tab-pane fade" id="reviews">
@@ -498,7 +507,7 @@
                 <hr />
                 <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <a href="javascript:void(0);" class="btn btn-success btn-lg">BOOK NOW ($129.54)</a>
+                        <a href="{{url('/book/'.$kamar->id)}}" class="btn btn-success btn-lg">BOOK NOW</a>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <!-- <div class="btn-group pull-right"> -->
@@ -519,6 +528,6 @@
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	
+
 </script>
 </body>

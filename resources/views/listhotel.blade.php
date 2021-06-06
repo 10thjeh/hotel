@@ -99,23 +99,23 @@
                                             </label>
                                             <p>{{$hotel->deskripsi}}</p>
                                         </div>
-                                        <div class="location">Warsaw, Poland</div>
-                                        <div class="price">38€ / day</div>
+                                        <div class="location">{{$hotel->namaLokasi}}</div>
+                                        <div class="price">{{$hotel->rating}}*</div>
                                         <label for="" class="buttons return" aria-hidden="true">
-                                            <a href="{{url('/details')}}">BOOK NOW</a>
+                                            <a href="{{url('/hoteldetail/'.$hotel->id)}}">BOOK NOW</a>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                      </div> 
+                      </div>
 
                     </div>
         </section>
         <!--================ Ini buat nutup si hotel  =================-->
         <!--================Booking Tabel Area =================-->
-        <div class="container">
+        <!-- <div class="container">
             <div class="hotel_booking_table">
                 <div class="col-md-3">
                     <h2>Book<br> Your Hotel</h2>
@@ -177,11 +177,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         </section>
         <!--================Booking Tabel Area  =================-->
         <!--================ Accomodation Area  =================-->
-        <section class="accomodation_area section_gap">
+        <!-- <section class="accomodation_area section_gap">
             <div class="container">
                 <div class="section_title text-center">
                     <h2 class="title_color">List Hotel</h2>
@@ -270,7 +270,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!--================ Accomodation Area  =================-->
         <style>
 

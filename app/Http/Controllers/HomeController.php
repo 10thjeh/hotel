@@ -20,15 +20,23 @@ class HomeController extends Controller
           'city' => 'required|numeric'
         ]);
 
-        session()->put('arrival', $request->arrival);
-        session()->put('departure', $request->departure);
+        $arrival = explode(" ", $request->arrival);
+        $arrivalDate = $arrival[0];
+        $departure = explode(" ", $request->departure);
+        $departureDate = $departure[0];
+
+        session()->put('arrival', $arrivalDate);
+        session()->put('departure', $departureDate);
         session()->put('city', $request->city);
 
-        dd(session());
+        $hotels = HotelModel::hotelOnKota($request->city);
+        return view('listhotel', [
+          'hotels' => $hotels
+        ]);
     }
 
     public function debug(){
-      $data = HotelModel::fasilitasHotel(1);
+      $data = HotelModel::hotel();
       dd($data);
     }
 }
