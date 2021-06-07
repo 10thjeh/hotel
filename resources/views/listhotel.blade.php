@@ -44,18 +44,18 @@
                         <div class="row">
                              <div class="col-md-4">
                                 <div class="book_tabel_item">
-                                    <form action="{{url('/hotel')}}" method="post">
+                                    <form action="{{url('/hotel')}}" method="post" id="form1">
                                     @csrf
                                         <div class="form-group">
                                             <div class='input-group date'>
                                                 <input type='number' class="form-control" placeholder="Harga" name="harga" min="1"/>
                                             </div>
                                         </div>
-                                        <div class="book_tabel_item">
-                                            <button type="submit" class="book_now_btn button_hover" name="price">CARI HARGA</button>
-                                        </div>
+                                        <!-- <div class="book_tabel_item">
+                                            
+                                        </div> -->
                                     </form>
-                                    <form action="{{url('/hotel')}}" method="post">
+                                    <form action="{{url('/hotel')}}" method="post" id="form2">
                                     @csrf
                                         <div class="form-group">
                                             <div class="input-group">
@@ -68,23 +68,24 @@
                                                     <option value="5">Bintnag 5</option>
                                                 </select>
                                             </div>
-                                            <div class="book_tabel_item">
-                                                <button type="submit" class="book_now_btn button_hover" name="rate">CARI RATING</button>
-                                            </div>
+                                            <!-- <div class="book_tabel_item">
+                                                
+                                            </div> -->
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-4">
+                            <div class="col-md-4">
                                 <div class="book_tabel_item">
                                     <div class="input-group">
-                                    <a class="book_now_btn button_hover" href="#">CARI HARGA</a>
+                                        <button type="submit" class="book_now_btn button_hover" name="price" form="form1">CARI HARGA</button>
                                     </div>
                                     <div class="input-group">
                                     <a class="book_now_btn button_hover" href="#">CARI RATING</a>
+                                        <button type="submit" class="book_now_btn button_hover" name="rate" form="form2">CARI RATING</button>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -391,7 +392,7 @@
   background-color: #fff;
   background-size: cover;
   background-position: center center;
-
+  
 }
 .front:after {
   content: "";
