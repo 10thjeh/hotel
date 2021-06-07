@@ -350,7 +350,6 @@
   display: block;
   border-radius: 6px;
   backface-visibility: hidden;
-  /* background: linear-gradient(40deg, rgba(67, 138, 243, 0.7), rgba(255, 242, 166, 0.7)); */
 }
 .front .inner {
   grid-template-rows: 5fr 1fr 1fr 2fr 1fr;
