@@ -64,7 +64,7 @@
 
                                                   </select>
                                               </div>-->
-                                              <button type="submit" class="book_now_btn button_hover">Book now</button>
+                                              <button type="submit" class="book_now_btn button_hover" name="location">Book now</button>
                                           </div>
                                       </div>
                                   </div>

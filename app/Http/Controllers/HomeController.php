@@ -14,6 +14,7 @@ class HomeController extends Controller
     }
 
     public function hotel(Request $request){
+      if($request->has('location')){
         $request->validate([
           'arrival' => 'required|date|after:yesterday',
           'departure' => 'required|date|after:arrival',
@@ -33,6 +34,8 @@ class HomeController extends Controller
         return view('listhotel', [
           'hotels' => $hotels
         ]);
+      }
+      
     }
 
     public function debug(){
