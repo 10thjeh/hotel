@@ -6,16 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="{{asset('front/image/LogoAwal.png')}}" type="image/png">
         <title>Crustycation - Confirmation</title>
-        <!-- Bootstrap CSS -->
-        <!-- <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css"> -->
-        <!-- main css -->
-        <!-- <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css"> -->
+        
     </head>
     <body>
         <!--================Breadcrumb Area =================-->
@@ -96,24 +87,8 @@
                         </div>
                         <div class="form-group row">
                           <p>Rp <p id="harga">0</p></p>
-                          <!-- <p ng-bind="harga"></p> -->
-                            <!-- <label class="col-lg-3 col-form-label form-control-label">Harga</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" placeholder="Harga" ng-bind="harga"> -->
                             </div>
                         </div>
-                        <!-- <div class="form-group row"> -->
-                            <!-- <label class="col-lg-3 col-form-label form-control-label">Password</label> -->
-                            <!-- <div class="col-lg-9"> -->
-                                <!-- <input class="form-control" type="password" value="11111122333"> -->
-                            <!-- </div> -->
-                        <!-- </div> -->
-                        <!-- <div class="form-group row"> -->
-                            <!-- <label class="col-lg-3 col-form-label form-control-label">Confirm</label> -->
-                            <!-- <div class="col-lg-9"> -->
-                                <!-- <input class="form-control" type="password" value="11111122333"> -->
-                            <!-- </div> -->
-                        <!-- </div> -->
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">

@@ -80,8 +80,6 @@
                             <tr>
                                 <td><a href="#" class="btn btn-warning text-white"><i class="fa fa-angle-left"></i> Kembali</a></td>
                                 <td colspan="2" class="hidden-xs"></td>
-                                <!-- <td class="hidden-xs text-center" style="width:10%;"><strong>Total : 47,000</strong></td> -->
-                                <!-- <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td> -->
                             </tr>
                         </tfoot>
                     </table>
