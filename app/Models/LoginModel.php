@@ -11,6 +11,13 @@ use Session;
 class LoginModel extends Model
 {
     static function register($nama, $email, $tanggalLahir, $nomorTelepon, $password, $foto){
+
+      $isExistQuery = DB::table('users')
+                        ->where('email', $email)
+                        ->count();
+
+      if($isExistQuery>=0) return redirect()->back()->withErrors(['errors' => 'Email already registered!']);
+
       $password = Hash::make($password);
       if($foto == null){
         $foto = 'placeholder.png';
