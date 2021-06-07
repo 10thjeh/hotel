@@ -48,18 +48,18 @@
                                     @csrf
                                         <div class="form-group">
                                             <div class='input-group date'>
-                                                <input type='number' class="form-control" placeholder="Harga" min="1"/>
+                                                <input type='number' class="form-control" placeholder="Harga" name="harga" min="1"/>
                                             </div>
                                         </div>
                                         <div class="book_tabel_item">
-                                            <button type="submit" class="book_now_btn button_hover">CARI HARGA</button>
+                                            <button type="submit" class="book_now_btn button_hover" name="price">CARI HARGA</button>
                                         </div>
                                     </form>
-                                    <form action="{{url('/hotelrating')}}" method="post">
+                                    <form action="{{url('/hotel')}}" method="post">
                                     @csrf
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <select class="wide">
+                                                <select class="wide" name="rating">
                                                     <option data-display="Rating">Rating</option>
                                                     <option value="1">Bintang 1</option>
                                                     <option value="2">Bintang 2</option>
@@ -69,12 +69,12 @@
                                                 </select>
                                             </div>
                                             <div class="book_tabel_item">
-                                                <button type="submit" class="book_now_btn button_hover">CARI RATING</button>
+                                                <button type="submit" class="book_now_btn button_hover" name="rate">CARI RATING</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                            </div> 
+                            </div>
                             <!-- <div class="col-md-4">
                                 <div class="book_tabel_item">
                                     <div class="input-group">
@@ -391,7 +391,7 @@
   background-color: #fff;
   background-size: cover;
   background-position: center center;
-  
+
 }
 .front:after {
   content: "";

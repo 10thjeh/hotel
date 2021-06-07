@@ -14,6 +14,7 @@ class HomeController extends Controller
     }
 
     public function hotel(Request $request){
+      if($request->has('location')){
         $request->validate([
           'arrival' => 'required|date|after:yesterday',
           'departure' => 'required|date|after:arrival',
@@ -33,6 +34,32 @@ class HomeController extends Controller
         return view('listhotel', [
           'hotels' => $hotels
         ]);
+      }
+
+      if($request->has('rate')){
+        $request->validate([
+          'rating' => 'required|numeric|min:0|max:5|multiple_of:1'
+        ]);
+        $rating = $request->rating;
+        $hotels = HotelModel::getHotelWithRating($rating);
+        return view('listhotel', [
+          'hotels' => $hotels
+        ]);
+      }
+
+      if($request->has('price')){
+        $request->validate([
+          'harga' => 'required|numeric|min:0|multiple_of:1'
+        ]);
+
+        $harga = $request->harga;
+        $hotels = HotelModel::getHotelWithPrice($harga);
+        return view('listhotel', [
+          'hotels' => $hotels
+        ]);
+      }
+
+      return redirect('/hotel');
     }
 
     public function debug(){
