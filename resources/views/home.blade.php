@@ -233,7 +233,7 @@
                 </div>
                 <div class="testimonial_slider owl-carousel">
                     <div class="media testimonial_item">
-                        <img class="rounded-circle" src="{{asset('front/image/testtimonial-1.jpg')}}" alt="">
+                        <img class="rounded-circle" src="{{asset('front/image/FarrelBulet1.png')}}" alt="">
                         <div class="media-body">
                             <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
                             <a href="#"><h4 class="sec_h4">Indira Hafiz Alfarrel</h4></a>
@@ -247,7 +247,7 @@
                         </div>
                     </div>
                     <div class="media testimonial_item">
-                        <img class="rounded-circle" src="{{asset('front/image/testtimonial-1.jpg')}}" alt="">
+                        <img class="rounded-circle" src="{{asset('front/image/JesseBulet1.png')}}" alt="">
                         <div class="media-body">
                             <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
                             <a href="#"><h4 class="sec_h4">Jesse Evans</h4></a>
@@ -261,7 +261,7 @@
                         </div>
                     </div>
                     <div class="media testimonial_item">
-                        <img class="rounded-circle" src="{{asset('front/image/testtimonial-1.jpg')}}" alt="">
+                        <img class="rounded-circle" src="{{asset('front/image/DarwinBulet1.png')}}" alt="">
                         <div class="media-body">
                             <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
                             <a href="#"><h4 class="sec_h4">Raja Darwin</h4></a>
