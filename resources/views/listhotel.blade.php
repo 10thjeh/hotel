@@ -391,7 +391,7 @@
   background-color: #fff;
   background-size: cover;
   background-position: center center;
-
+  
 }
 .front:after {
   content: "";
