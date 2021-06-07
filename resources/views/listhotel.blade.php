@@ -44,21 +44,29 @@
                         <div class="row">
                              <div class="col-md-4">
                                 <div class="book_tabel_item">
-                                    <div class="form-group">
-                                        <div class='input-group date'>
-                                            <input type='number' class="form-control" placeholder="Harga" min="1"/>
+                                    <form action="{{url('/hotel')}}" method="post">
+                                    @csrf
+                                        <div class="form-group">
+                                            <div class='input-group date'>
+                                                <input type='number' class="form-control" placeholder="Harga" min="1"/>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="input-group">
-                                        <select class="wide">
-                                            <option data-display="Rating">Rating</option>
-                                            <option value="1">Child</option>
-                                            <option value="2">Baby</option>
-                                            <option value="3">Child</option>
-                                        </select>
-                                    </div>
-                                    </div>
+                                    </form>
+                                    <form action="{{url('/hotelrating')}}" method="post">
+                                    @csrf
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <select class="wide">
+                                                    <option data-display="Rating">Rating</option>
+                                                    <option value="1">Bintang 1</option>
+                                                    <option value="2">Bintang 2</option>
+                                                    <option value="3">Bintang 3</option>
+                                                    <option value="4">Bintang 4</option>
+                                                    <option value="5">Bintnag 5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div> 
                             <div class="col-md-4">
