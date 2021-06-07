@@ -81,7 +81,6 @@
                                         <button type="submit" class="book_now_btn button_hover" name="price" form="form1">CARI HARGA</button>
                                     </div>
                                     <div class="input-group">
-                                    <a class="book_now_btn button_hover" href="#">CARI RATING</a>
                                         <button type="submit" class="book_now_btn button_hover" name="rate" form="form2">CARI RATING</button>
                                     </div>
                                 </div>
