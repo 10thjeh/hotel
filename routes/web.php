@@ -65,6 +65,7 @@ Route::get('/register',[LoginController::class,'registerview']);
 Route::get('/login',[LoginController::class,'loginview'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/user', [UserController::class, 'showuser'])->middleware(RequireLogin::class);
+Route::get('/aboutus', [HomeController::class,'aboutus']);
 
 //POST routes
 Route::post('/register', [LoginController::class, 'register']);
