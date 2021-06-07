@@ -66,12 +66,15 @@
                                                     <option value="2">Bintang 2</option>
                                                     <option value="3">Bintang 3</option>
                                                     <option value="4">Bintang 4</option>
-                                                    <option value="5">Bintnag 5</option>
                                                     <option value="5">Bintang 5</option>
                                                 </select>
                                             </div>
                                             <div class="book_tabel_item">
+<<<<<<< Updated upstream
                                                 <button type="submit" class="book_now_btn button_hover" name="rate">CARI RATING</button>
+=======
+                                                <button type="submit" class="book_now_btn button_hover">CARI RATING</button>
+>>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </form>
