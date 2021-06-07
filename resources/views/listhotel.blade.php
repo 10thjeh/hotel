@@ -51,6 +51,9 @@
                                                 <input type='number' class="form-control" placeholder="Harga" min="1"/>
                                             </div>
                                         </div>
+                                        <div class="book_tabel_item">
+                                            <button type="submit" class="book_now_btn button_hover">CARI HARGA</button>
+                                        </div>
                                     </form>
                                     <form action="{{url('/hotelrating')}}" method="post">
                                     @csrf
@@ -65,11 +68,14 @@
                                                     <option value="5">Bintnag 5</option>
                                                 </select>
                                             </div>
+                                            <div class="book_tabel_item">
+                                                <button type="submit" class="book_now_btn button_hover">CARI RATING</button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
                             </div> 
-                            <div class="col-md-4">
+                            <!-- <div class="col-md-4">
                                 <div class="book_tabel_item">
                                     <div class="input-group">
                                     <a class="book_now_btn button_hover" href="#">CARI HARGA</a>
@@ -78,7 +84,7 @@
                                     <a class="book_now_btn button_hover" href="#">CARI RATING</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
