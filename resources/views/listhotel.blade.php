@@ -35,18 +35,19 @@
         <!--================Breadcrumb Area =================-->
         <!--================Booking Tabel Area =================-->
         <div class="container">
+        
             <div class="hotel_booking_table">
                 <div class="col-md-3">
                     <h2>CARI<br>RATING<br> HARGA</h2>
                 </div>
                 <div class="col-md-9">
                     <div class="boking_table">
-                        <div class="row">
+                             <div class="row">
                              <div class="col-md-4">
                                 <div class="book_tabel_item">
                                     <form action="{{url('/hotel')}}" method="post">
                                     @csrf
-                                        <div class="form-group">
+                                        <divs class="form-group">
                                             <div class='input-group date'>
                                                 <input type='number' class="form-control" placeholder="Harga" name="harga" min="1"/>
                                             </div>
@@ -65,11 +66,15 @@
                                                     <option value="2">Bintang 2</option>
                                                     <option value="3">Bintang 3</option>
                                                     <option value="4">Bintang 4</option>
-                                                    <option value="5">Bintnag 5</option>
+                                                    <option value="5">Bintang 5</option>
                                                 </select>
                                             </div>
                                             <div class="book_tabel_item">
+<<<<<<< Updated upstream
                                                 <button type="submit" class="book_now_btn button_hover" name="rate">CARI RATING</button>
+=======
+                                                <button type="submit" class="book_now_btn button_hover">CARI RATING</button>
+>>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </form>
