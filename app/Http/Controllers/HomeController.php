@@ -39,4 +39,8 @@ class HomeController extends Controller
       $data = HotelModel::getHotelWithPrice(1500000);
       dd($data);
     }
+
+    public function aboutus(){
+      return view("aboutus");
+    }
 }

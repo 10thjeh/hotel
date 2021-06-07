@@ -15,7 +15,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{url('home')}}">Home</a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('home#akomodasigan')}}">Accomodation</a></li>
                             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('home#fasilitas')}}">Facilities</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('home#about')}}">About us</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('aboutus')}}">About us</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('/hotel')}}">Hotel</a></li>
                             @if(session('isLoggedIn') == True)
                             <li class="nav-item submenu dropdown">
