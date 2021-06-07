@@ -46,7 +46,7 @@
                                 <div class="book_tabel_item">
                                     <div class="form-group">
                                         <div class='input-group date'>
-                                            <input type='number' class="form-control" placeholder="Harga"/>
+                                            <input type='number' class="form-control" placeholder="Harga" min="1"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -144,7 +144,7 @@
                                             <p>{{$hotel->deskripsi}}</p>
                                         </div>
                                         <div class="location">{{$hotel->namaLokasi}}</div>
-                                        <div class="price">{{$hotel->rating}}*</div>
+                                        <div class="price"><i class="fa fa-star" aria-hidden="true"></i> {{$hotel->rating}} </div>
                                         <label for="" class="buttons return" aria-hidden="true">
                                             <a href="{{url('/hoteldetail/'.$hotel->id)}}">BOOK NOW</a>
                                         </label>
@@ -377,6 +377,7 @@
   background-color: #fff;
   background-size: cover;
   background-position: center center;
+  
 }
 .front:after {
   content: "";
@@ -388,7 +389,8 @@
   display: block;
   border-radius: 6px;
   backface-visibility: hidden;
-  /* background: linear-gradient(40deg, rgba(67, 138, 243, 0.7), rgba(255, 242, 166, 0.7)); */
+  /* background: linear-gradient(1deg, rgb(0,0,0,0.7), rgba(128,128,128, 0.7)); */
+  /* background: linear-gradient(40deg, rgba(120, 138, 243, 0.7), rgba(255, 242, 166, 0.7));  */
 }
 .front .inner {
   grid-template-rows: 5fr 1fr 1fr 2fr 1fr;
