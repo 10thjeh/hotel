@@ -1,5 +1,5 @@
 # Welcome to Crustycation repo
-Visit our site [here](crustycation.crusty-crud.xyz)
+Visit our site [here](www.crustycation.crusty-crud.xyz)
 
 To run this app in your localhost follow this steps
 
