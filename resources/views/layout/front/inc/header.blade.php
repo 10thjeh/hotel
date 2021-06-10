@@ -22,7 +22,7 @@
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{session('name')}}</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="{{url('/user')}}">Profil Saya</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="blog-single.html">Cart</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{url('/cart')}}">Cart</a></li>
                                 </ul>
                             </li> 
                               <li class="nav-item"><a class="nav-link" href="{{url('/logout')}}">Log out</a></li>

@@ -146,12 +146,12 @@
         </section>
         <!--================Breadcrumb Area =================-->
 <div class="container">
+@foreach($invoices as $invoice)
    <div class="col-md-12">
       <div class="invoice">
          <!-- begin invoice-company -->
          <div class="invoice-company text-inverse f-w-600">
             <span class="pull-right hidden-print">
-            <a href="javascript:;" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Export as PDF</a>
             <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
             </span>
             Crustycation, Inc
@@ -172,17 +172,16 @@
             <div class="invoice-to">
                <small>to</small>
                <address class="m-t-5 m-b-5">
-                  <strong class="text-inverse">Nama Pemesan</strong><br>
-                  Alamat Email<br>
-                  Emailnya apa<br>
-                  Phone: (123) 456-7890<br>
+                  <strong class="text-inverse">{{$invoice->namaPemesan}}</strong><br>
+                  {{$invoice->email}}<br>
+                  Phone: {{$invoice->nomorTelepon}}<br>
                </address>
             </div>
             <div class="invoice-date">
-               <small>Invoice / July period</small>
-               <div class="date text-inverse m-t-5">August 3,2012</div>
+               <small>Invoice</small>
+               <div class="date text-inverse m-t-5">{{$invoice->waktuPemesanan}}</div>
                <div class="invoice-detail">
-                  #0000123DSS<br>
+                  #00CC00{{$invoice->id}}<br>
                   Room Reservation
                </div>
             </div>
@@ -196,7 +195,7 @@
                   <thead>
                      <tr>
                         <th>DESKRIPSI</th>
-                        <th class="text-center" width="10%">HARGA</th>
+                        <th class="text-center" width="10%">HARGA(Rupiah)</th>
                         <th class="text-center" width="10%">HARI</th>
                         <th class="text-right" width="20%">TOTAL</th>
                      </tr>
@@ -204,30 +203,12 @@
                   <tbody>
                      <tr>
                         <td>
-                           <span class="text-inverse">Website design &amp; development</span><br>
-                           <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
+                           <span class="text-inverse">{{$invoice->nama}}</span><br>
+                           <small>{{$invoice->namaKamar}}</small>
                         </td>
-                        <td class="text-center">$50.00</td>
-                        <td class="text-center">50</td>
-                        <td class="text-right">$2,500.00</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <span class="text-inverse">Branding</span><br>
-                           <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
-                        </td>
-                        <td class="text-center">$50.00</td>
-                        <td class="text-center">40</td>
-                        <td class="text-right">$2,000.00</td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <span class="text-inverse">Redesign Service</span><br>
-                           <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
-                        </td>
-                        <td class="text-center">$50.00</td>
-                        <td class="text-center">50</td>
-                        <td class="text-right">$2,500.00</td>
+                        <td class="text-center">{{$hargahari = $invoice->harga / $invoice->lama}}</td>
+                        <td class="text-center">{{$invoice->lama}}</td>
+                        <td class="text-right">{{$invoice->harga}}</td>
                      </tr>
                   </tbody>
                </table>
@@ -235,23 +216,8 @@
             <!-- end table-responsive -->
             <!-- begin invoice-price -->
             <div class="invoice-price">
-               <div class="invoice-price-left">
-                  <div class="invoice-price-row">
-                     <div class="sub-price">
-                        <small>Subtotal</small>
-                        <span class="text-inverse">$4,500.00</span>
-                     </div>
-                     <div class="sub-price">
-                        <i class="fa fa-plus text-muted"></i>
-                     </div>
-                     <div class="sub-price">
-                        <small>PPn (10%)</small>
-                        <span class="text-inverse">$108.00</span>
-                     </div>
-                  </div>
-               </div>
                <div class="invoice-price-right">
-                  <small>TOTAL</small> <span class="f-w-600">$4508.00</span>
+                  <small>TOTAL</small> <span class="f-w-600">Rp. {{$invoice->harga}}</span>
                </div>
             </div>
             <!-- end invoice-price -->
@@ -275,6 +241,7 @@
                <span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> cs@crustycation.com</span>
             </p>
          </div>
+         @endforeach
          <!-- end invoice-footer -->
       </div>
    </div>

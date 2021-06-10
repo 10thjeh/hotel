@@ -115,7 +115,7 @@
         let hargaKamar = {{$harga}};
         let jumlahKamar = document.getElementById('kamar').value;
         let hari = diff.getUTCDate() - 1;
-        document.getElementById("harga").innerHTML = hargaKamar * jumlahKamar * hari;
+        document.getElementById("harga").innerHTML = isNaN(hargaKamar * jumlahKamar * hari)?"0":hargaKamar * jumlahKamar * hari;
       }
 
       var app = angular.module('myApp', []);
