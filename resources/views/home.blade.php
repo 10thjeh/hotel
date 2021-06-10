@@ -217,7 +217,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" src="{{asset('front/image/about_bg.jpg')}}" alt="img">
+                        <img class="img-fluid" src="{{asset('front/image/LogoDepan.png')}}" alt="img" style="border-radius:12px;">
                     </div>
                 </div>
             </div>
@@ -228,14 +228,14 @@
         <section class="testimonial_area section_gap">
             <div class="container">
                 <div class="section_title text-center">
-                    <h2 class="title_color">Testimonial from our Clients</h2>
-                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
+                    <h2 class="title_color">Testimonial dari Klien</h2>
+                    <p>Bukti bahwa kami memberikan pelayanan yang terbaik se Jabodetabek</p>
                 </div>
                 <div class="testimonial_slider owl-carousel">
                     <div class="media testimonial_item">
                         <img class="rounded-circle" src="{{asset('front/image/FarrelBulet1.png')}}" alt="">
                         <div class="media-body">
-                            <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
+                            <p>Saya sudah menggunakan crustycation sejak saya SMA. Dari dulu hingga sekarang memang memberikan yang terbaik</p>
                             <a href="#"><h4 class="sec_h4">Indira Hafiz Alfarrel</h4></a>
                             <div class="star">
                                 <a href="#"><i class="fa fa-star"></i></a>

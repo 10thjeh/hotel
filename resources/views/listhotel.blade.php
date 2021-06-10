@@ -34,17 +34,7 @@
                         <div class="row">
                              <div class="col-md-4">
                                 <div class="book_tabel_item">
-                                    <form action="{{url('/hotel')}}" method="post" id="form1">
-                                    @csrf
-                                        <div class="form-group">
-                                            <div class='input-group date'>
-                                                <input type='number' class="form-control" placeholder="Harga" name="harga" min="1"/>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="book_tabel_item">
-                                            
-                                        </div> -->
-                                    </form>
+                                    
                                     <form action="{{url('/hotel')}}" method="post" id="form2">
                                     @csrf
                                         <div class="form-group">
@@ -63,18 +53,53 @@
                                             </div> -->
                                         </div>
                                     </form>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="book_tabel_item">
-                                    <div class="input-group">
-                                        <button type="submit" class="book_now_btn button_hover" name="price" form="form1">CARI HARGA</button>
-                                    </div>
                                     <div class="input-group">
                                         <button type="submit" class="book_now_btn button_hover" name="rate" form="form2">CARI RATING</button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="book_tabel_item">
+                                <form action="{{url('/hotel')}}" method="post" id="form1">
+                                    @csrf
+                                        <div class="form-group">
+                                            <div class='input-group date'>
+                                                <input type='number' class="form-control" placeholder="Harga" name="harga" min="1"/>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="book_tabel_item">
+                                        </div> -->
+                                    </form>
+                                    <div class="input-group">
+                                        <button type="submit" class="book_now_btn button_hover" name="price" form="form1">CARI HARGA</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <divss class="col-md-4">
+                                <div class="book_tabel_item">
+                                    <form action="{{url('/hotel')}}" method="post" id="form3">
+                                    @csrf
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <select class="wide" name="Lokasi">
+                                                    <option data-display="Lokasi">Lokasi</option>
+                                                    <option value="1">Bintang 1</option>
+                                                    <option value="2">Bintang 2</option>
+                                                    <option value="3">Bintang 3</option>
+                                                    <option value="4">Bintang 4</option>
+                                                    <option value="5">Bintnag 5</option>
+                                                </select>
+                                            </div>
+                                            <!-- <div class="book_tabel_item">
+                                                
+                                            </div> -->
+                                        </div>
+                                    </form>
+                                    <div class="input-group">
+                                        <button type="submit" class="book_now_btn button_hover" name="rate" form="form3">CARI LOKASI</button>
+                                    </div>
+                                </div>
+                            </divss>
                         </div>
                     </div>
                 </div>
