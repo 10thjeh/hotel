@@ -9,6 +9,7 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\HotelDetailController;
+use App\Http\Controllers\CartController;
 use App\Http\Middleware\AdminAuth;
 use App\Http\Middleware\RequireLogin;
 
@@ -87,11 +88,15 @@ Route::get('/book/{id}', [HotelController::class, 'book'])->middleware(RequireLo
 
 //Invoice
 //Get Routes
-Route::get('/invoice',[InvoiceController::class,'index']);
+Route::get('/invoice/{id}',[InvoiceController::class,'index']);
 
 //Detail
 //GET ROUTES
 Route::get('/details', [HotelDetailController::class,'index']);// Ini di apus juga gapapa
+
+//Cart
+//Get
+Route::get('/cart', [CartController::class, 'index']);
 
 //Room
 // Route::get('/room/{id}',[RoomController::class, 'index']);

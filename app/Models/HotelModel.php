@@ -237,9 +237,15 @@ class HotelModel extends Model
     }
 
     static function getOrders(){
+      DB::statement("SET SQL_MODE=''");
       $email = session('email');
       $query = DB::table('transaction')
+                 ->join('hotel', 'transaction.idHotel', '=', 'hotel.id')
+                 ->join('kamar', 'transaction.idKamar', '=', 'kamar.id')
+                 ->join('fotohotel', 'hotel.id', '=', 'fotohotel.idHotel')
+                 ->groupBy('nama')
                  ->where('email', $email)
+                 ->select('transaction.*', 'hotel.nama', 'fotohotel.foto', 'kamar.namaKamar')
                  ->get();
       return $query;
     }
@@ -266,6 +272,17 @@ class HotelModel extends Model
                  ->where('harga', '<=', $price)
                  ->groupBy('nama')
                  ->get();
+      return $query;
+    }
+
+    static function getInvoice($email, $id){
+      $query = DB::table('transaction')
+                  ->join('hotel', 'transaction.idHotel', '=', 'hotel.id')
+                  ->join('kamar', 'transaction.idKamar', '=', 'kamar.id')
+                  ->where('transaction.id', $id)
+                  ->where('email', $email)
+                  ->select('transaction.*', 'hotel.nama', 'kamar.namaKamar')
+                  ->get();
       return $query;
     }
 
