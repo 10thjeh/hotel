@@ -17,6 +17,8 @@
         <!-- main css -->
         <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
         <link rel="stylesheet" href="{{asset('front/css/responsive.css')}}">
+        <!-- AOS css-->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </head>
     <body>
         <!--================Header Area =================-->
@@ -50,5 +52,10 @@
         <script src="{{asset('front/js/stellar.js')}}"></script>
         <script src="{{asset('front/vendors/lightbox/simpleLightbox.min.js')}}"></script>
         <script src="{{asset('front/js/custom.js')}}"></script>
+        <!-- JS AOS-->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
     </body>
 </html>

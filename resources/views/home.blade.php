@@ -3,7 +3,7 @@
 
 <!--================Banner Area =================-->
 <section class="banner_area" id="header">
-            <div class="booking_table d_flex align-items-center" >
+            <div class="booking_table d_flex align-items-center" data-aos="flip-down">
             	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
 				<div class="container">
 					<div class="banner_content text-center">
@@ -80,13 +80,13 @@
         <!--================ Accomodation Area  =================-->
         <section class="accomodation_area section_gap" id="akomodasigan">
             <div class="container">
-                <div class="section_title text-center">
+                <div class="section_title text-center" data-aos="fade-up" data-aos-duration="1500">
                     <h2 class="title_color">Best Hotel</h2>
                     <p>Berikut ini adalah 3 hotel terbaik yang bekerja sama dengan Crustycation. Kami mengutamakan kenyamanan dan keamanan para tamu</p>
                 </div>
-                <div class="wrappers">
+                <div class="wrappers" >
                     @foreach($hotels as $hotel)
-                        <div class="cards">
+                        <div class="cards" data-aos="flip-down">
                             <input type="checkbox" id="{{$hotel->id}}" class="more" aria-hidden="true">
                             <div class="contents">
                                 <div class="front">
@@ -159,45 +159,45 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="">
             </div>
             <div class="container">
-                <div class="section_title text-center">
+                <div class="section_title text-center" data-aos="fade-up">
                     <h2 class="title_w">Fasilitas Crustycation</h2>
                     <p>Hotel yang bekerja sama dengan kami menyediakan fasilitas yang sangat mumpuni</p>
                 </div>
                 <div class="row mb_30">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" data-aos="flip-left">
                         <div class="facilities_item">
                             <h4 class="sec_h4"><i class="lnr lnr-dinner"></i>Restaurant</h4>
-                            <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                            <p>Pada hotel yang kami tunjukan memberikan rasa yang merindukan <br>"A house is not a home unless it contains food and fire for the mind as well as the body". -Benjamin Franklin</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" data-aos="flip-up">
                         <div class="facilities_item">
-                            <h4 class="sec_h4"><i class="lnr lnr-bicycle"></i>Sports CLub</h4>
-                            <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                            <h4 class="sec_h4"><i class="lnr lnr-bicycle"></i>Gymnesium</h4>
+                            <p>Untuk anda yang ingin mengisi waktu luang anda dengan kebugaran namun tapi tidak bisa keluar. Pada hotel kami memberikan Gym yang memiliki fasilitas yang lengkap.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" data-aos="flip-right">
                         <div class="facilities_item">
                             <h4 class="sec_h4"><i class="lnr lnr-shirt"></i>Swimming Pool</h4>
-                            <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                            <p>Kolam renang di dalam hotel pilihan kami, dipastikan bersih dan aman. Sehingga anak -  anak dapat bermain air dengan rekreasi yang sudah disediaka.n</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" data-aos="flip-left">
                         <div class="facilities_item">
                             <h4 class="sec_h4"><i class="lnr lnr-car"></i>Rent a Car</h4>
-                            <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                            <p>Pada beberapa hotel yang kami, anda dapat menyewakan kendaraan untuk jalan jalan keluar. Mulai dari mobil sport hingga mobil keluarga, sehingga anda tidak perlu mencari lagi.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" data-aos="flip-up">
                         <div class="facilities_item">
-                            <h4 class="sec_h4"><i class="lnr lnr-construction"></i>Gymnesium</h4>
-                            <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                            <h4 class="sec_h4"><i class="lnr lnr-construction"></i>Sports Club</h4>
+                            <p>Jika anda belum mengerti dalam menggunakan alat pada gym atau anda ingin melakukan aktifitas olahraga bersama dapat mengikuti Sports Club pada hotel.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" data-aos="flip-right">
                         <div class="facilities_item">
                             <h4 class="sec_h4"><i class="lnr lnr-coffee-cup"></i>Bar</h4>
-                            <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                            <p>Dunia malam untuk 21+ menyediakan live music untuk menemani malam kalian dan alkohol yang dapat membantu anda untuk menghilangkan penat.</p>
                         </div>
                     </div>
                 </div>
@@ -207,12 +207,14 @@
 
         <!--================ About History Area  =================-->
         <section class="about_history_area section_gap" id="about">
-            <div class="container">
+            <div class="container" data-aos="fade-right"
+                 data-aos-offset="300"
+                 data-aos-easing="ease-in-sine">
                 <div class="row">
-                    <div class="col-md-6 d_flex align-items-center">
+                    <div class="col-md-6 d_flex align-items-center" >
                         <div class="about_content ">
                             <h2 class="title title_color">Tentang Kami</h2>
-                            <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.</p>
+                            <p>Tiga mahasiswa yang berjuang dibawah serangan pandemi, yang bekerja demi sebuah nilai. Dengan harapan membangun project bersama untuk mendapatkan sepeser uang makan tanpa harus membebani orang tua, Farrel seorang mahasiswa yang mengulang 2 tahun masa kuliah nya, Darwin seorang desainer dan perfeksionis yang mendorong kelompok kami, dan Jesse Sebagai pendongkrak moral dan pusat otak di dalam kelompok kami.</p>
                             <a href="#" class="button_hover theme_btn_two">KONTAK KAMI</a>
                         </div>
                     </div>
@@ -226,7 +228,9 @@
 
         <!--================ Testimonial Area  =================-->
         <section class="testimonial_area section_gap">
-            <div class="container">
+            <div class="container"data-aos="fade-left"
+                 data-aos-offset="300"
+                 data-aos-easing="ease-in-sine">
                 <div class="section_title text-center">
                     <h2 class="title_color">Testimonial dari Klien</h2>
                     <p>Bukti bahwa kami memberikan pelayanan yang terbaik se Jabodetabek</p>
@@ -249,7 +253,7 @@
                     <div class="media testimonial_item">
                         <img class="rounded-circle" src="{{asset('front/image/JesseBulet1.png')}}" alt="">
                         <div class="media-body">
-                            <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
+                            <p>Saya sudah menggunakan crustycation sejak saya SD. Dari dulu hingga sekarang memang memberikan yang terbaik</p>
                             <a href="#"><h4 class="sec_h4">Jesse Evans</h4></a>
                             <div class="star">
                                 <a href="#"><i class="fa fa-star"></i></a>
@@ -263,7 +267,7 @@
                     <div class="media testimonial_item">
                         <img class="rounded-circle" src="{{asset('front/image/DarwinBulet1.png')}}" alt="">
                         <div class="media-body">
-                            <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
+                            <p>Saya sudah menggunakan crustycation sejak saya SMP. Dari dulu hingga sekarang memang memberikan yang terbaik</p>
                             <a href="#"><h4 class="sec_h4">Raja Darwin</h4></a>
                             <div class="star">
                                 <a href="#"><i class="fa fa-star"></i></a>

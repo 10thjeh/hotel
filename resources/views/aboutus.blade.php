@@ -9,11 +9,11 @@
     </head>
     <body>  
         <!--================Breadcrumb Area =================-->
-          <section class="breadcrumb_area" > <!--style="background-image: url('{{asset('front/image/BannerCrusty.png')}}');" -->
+        <section class="breadcrumb_area">
             <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="page-cover text-center">
-                    <h2 class="page-cover-tittle">Tentang Aku, Kamu, dan Dia</h2>
+                    <h2 class="page-cover-tittle">Tentang Kami</h2>
                     <ol class="breadcrumb">
                     </ol>
                 </div>
@@ -25,19 +25,19 @@
         <div class="container">
         <div class="card__collection clear-fix">
             <div class="tengah">
-            <divs class="cards cards--two">
+            <divs class="cards cards--two" data-aos="flip-right">
             <img src="{{asset('front/image/ChadRaidenBar.png')}}" class="img-responsive" alt="Cards Image">
                 <span class="cards--two__rect"></span>
                 <span class="cards--two__tri"></span>
                 <p>Raja Darwin - 41790<br> UI/UX Designer<br></p>   
               </divs>
-              <divs class="cards cards--two">
+              <divs class="cards cards--two" data-aos="flip-up">
                 <img src="{{asset('front/image/ChadFarrelBar.png')}}" class="img-responsive" alt="Cards Image">
                 <span class="cards--two__rect"></span>
                 <span class="cards--two__tri"></span>
                 <p>Indira Hafiz - 41794<br>Frontend Programmer</p>
               </divs>
-              <div class="cards cards--two">
+              <div class="cards cards--two" data-aos="flip-left">
               <img src="{{asset('front/image/ChadJesseBar.png')}}" class="img-responsive" alt="Cards Image">
                 <span class="cards--two__rect"></span>
                 <span class="cards--two__tri"></span>
@@ -218,7 +218,7 @@
         .card__collection .cards--two__tri:before {
           border-top: 220px solid transparent;
           border-bottom: 190px solid transparent;
-           border-right: 288px solid #57ccfd; /*Warna kanan */
+          border-right: 288px solid #395ac9;
           position: absolute;
           content: "";
           display: block;
@@ -246,7 +246,7 @@
           width: 100%;
           position: relative;
           height: 100%;
-          background: #01288f;
+          background: #395ac9;
           transform: translateY(200px);
           z-index: 2;
           transition: all 0.3s ease-in-out;

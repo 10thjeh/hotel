@@ -65,7 +65,7 @@
 }
 
 .bg-image {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("{{asset('front/assets/img/stickFinal.gif')}}");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("{{asset('front/image/bannerhotel2.gif')}}");
   background-size: cover;
   background-position: center;
 }
