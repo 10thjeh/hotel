@@ -9,7 +9,7 @@
     </head>
     <body>  
         <!--================Breadcrumb Area =================-->
-        <section class="breadcrumb_area">
+          <section class="breadcrumb_area" > <!--style="background-image: url('{{asset('front/image/BannerCrusty.png')}}');" -->
             <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="page-cover text-center">
@@ -26,39 +26,22 @@
         <div class="card__collection clear-fix">
             <div class="tengah">
             <divs class="cards cards--two">
-                <img src="https://images.unsplash.com/photo-1504703395950-b89145a5425b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d702cb99ca804bffcfa8820c46483264&auto=format&fit=crop&w=651&q=80" class="img-responsive" alt="Cards Image">
+            <img src="{{asset('front/image/ChadRaidenBar.png')}}" class="img-responsive" alt="Cards Image">
                 <span class="cards--two__rect"></span>
                 <span class="cards--two__tri"></span>
                 <p>Raja Darwin - 41790<br> UI/UX Designer<br></p>   
-                <ul class="cards__list">
-                  <li><i class="fa fa-facebook-f"></i></li>
-                  <li><i class="fa fa-twitter"></i></li>
-                  <li><i class="fa fa-instagram"></i></li>
-                </ul>
               </divs>
               <divs class="cards cards--two">
-                <img src="https://images.unsplash.com/photo-1504703395950-b89145a5425b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d702cb99ca804bffcfa8820c46483264&auto=format&fit=crop&w=651&q=80" class="img-responsive" alt="Cards Image">
+                <img src="{{asset('front/image/ChadFarrelBar.png')}}" class="img-responsive" alt="Cards Image">
                 <span class="cards--two__rect"></span>
                 <span class="cards--two__tri"></span>
                 <p>Indira Hafiz - 41794<br>Frontend Programmer</p>
-                <ul class="cards__list">
-                  <li><i class="fab fa-facebook-f"></i></li>
-                  <li><i class="fab fa-twitter"></i></li>
-                  <li><i class="fab fa-instagram"></i></li>
-                  <li><i class="fab fa-linkedin-in"></i></li>
-                </ul>
               </divs>
               <div class="cards cards--two">
-                <img src="https://images.unsplash.com/photo-1504703395950-b89145a5425b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d702cb99ca804bffcfa8820c46483264&auto=format&fit=crop&w=651&q=80" class="img-responsive" alt="Cards Image">
+              <img src="{{asset('front/image/ChadJesseBar.png')}}" class="img-responsive" alt="Cards Image">
                 <span class="cards--two__rect"></span>
                 <span class="cards--two__tri"></span>
                 <p>Jesse Evans - 42219<br>Backend Programmer</p>
-                <ul class="cards__list">
-                  <li><i class="fab fa-facebook-f"></i></li>
-                  <li><i class="fab fa-twitter"></i></li>
-                  <li><i class="fab fa-instagram"></i></li>
-                  <li><i class="fab fa-linkedin-in"></i></li>
-                </ul>
               </div>
             </div>
             </div>
@@ -235,7 +218,7 @@
         .card__collection .cards--two__tri:before {
           border-top: 220px solid transparent;
           border-bottom: 190px solid transparent;
-          border-right: 288px solid #57ccfd;
+           border-right: 288px solid #57ccfd; /*Warna kanan */
           position: absolute;
           content: "";
           display: block;
@@ -263,7 +246,7 @@
           width: 100%;
           position: relative;
           height: 100%;
-          background: #f07306;
+          background: #01288f;
           transform: translateY(200px);
           z-index: 2;
           transition: all 0.3s ease-in-out;
